@@ -9,6 +9,7 @@
   "settingsSchema": {},
   "dependencies": {
     "vtex.render": "0.x",
+    "vtex.loading": "0.x",
     "npm:ramda": "0.22.1"
   }
 }

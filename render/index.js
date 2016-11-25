@@ -6,6 +6,7 @@ import ApolloClient from 'apollo-client'
 import {withApollo} from 'react-apollo'
 import gql from 'graphql-tag'
 
+import {ShimmerLoading} from 'vtex.loading'
 import Link from 'vtex.render/Link'
 
 const categoryQuery = gql`
@@ -28,6 +29,7 @@ const brandQuery = gql`
 const productQuery = gql`
   query GetProduct($slug: String) {
     product(slug: $slug) {
+      id
       slug
       categories{
         name
@@ -122,31 +124,37 @@ class Breadcrumb extends Component {
     const previousRoute = this.state ? this.state.previousRoute : null
     return (
       <nav className="dn db-ns w-100 f5 pa2 bt b--black-10">
-        <ul className="flex list ma0 pa0">
-          <li>
-            <Link className="dib pv1 link light-primary hover-primary" to="/">
-              Início
-            </Link>
-          </li>
-          <li>
-            <span className="dib b pv1 ph2 black-30">&rsaquo;</span>
-          </li>
-          {
-            previousRoute && previousRoute.name !== 'home' ? (
-              <div className="dib">
-                <li className="dib">
-                  {this.state.Link}
-                </li>
-                <li className="dib">
-                  <span className="dib b pv1 ph2 black-30">&rsaquo;</span>
-                </li>
-              </div>
-            ) : null
-          }
-          <li>
-            <span className="dib pv1 link black-30">{this.props.productName}</span>
-          </li>
-        </ul>
+        {
+          this.state ? (
+            <ul className="flex list ma0 pa0">
+              <li>
+                <Link className="dib pv1 link light-primary hover-primary" to="/">
+                  Início
+                </Link>
+              </li>
+              <li>
+                <span className="dib b pv1 ph2 black-30">&rsaquo;</span>
+              </li>
+              {
+                previousRoute && previousRoute.name !== 'home' ? (
+                  <div className="dib">
+                    <li className="dib">
+                      {this.state.Link}
+                    </li>
+                    <li className="dib">
+                      <span className="dib b pv1 ph2 black-30">&rsaquo;</span>
+                    </li>
+                  </div>
+                ) : null
+              }
+              <li>
+                <span className="dib pv1 link black-30">{this.props.productName}</span>
+              </li>
+            </ul>
+          ) : (
+            <ShimmerLoading style={{width: '40%'}} className="h2" />
+          )
+        }
       </nav>
     )
   }

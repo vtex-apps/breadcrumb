@@ -1,0 +1,14 @@
+{
+  "name": "breadcrumb",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "VTEX Breadcrumb",
+  "description": "",
+  "mustUpdateAt": "2017-11-08",
+  "categories": [],
+  "settingsSchema": {},
+  "dependencies": {
+    "vtex.render": "0.x",
+    "npm:ramda": "0.22.1"
+  }
+}

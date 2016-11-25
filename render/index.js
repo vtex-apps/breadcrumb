@@ -12,6 +12,7 @@ const categoryQuery = gql`
   query GetCategory($category: String) {
     category(slug: $category) {
       name
+      slug
     }
   }
 `
@@ -30,7 +31,7 @@ const productQuery = gql`
       slug
       categories{
         name
-        href
+        slug
       }
     }
   }
@@ -80,7 +81,7 @@ class Breadcrumb extends Component {
       })
       .then((result) => {
         return (
-          <Link className="dib pv1 link light-primary hover-primary" href={path}>{result.data.category.name}</Link>
+          <Link className="dib pv1 link light-primary hover-primary" to={`/${result.data.category.slug}/c`}>{result.data.category.name}</Link>
         )
       })
     } else if (name === 'brand') {
@@ -92,16 +93,16 @@ class Breadcrumb extends Component {
       })
       .then((result) => {
         return (
-          <Link className="dib pv1 link light-primary hover-primary" href={path}>{result.data.brand.name}</Link>
+          <Link className="dib pv1 link light-primary hover-primary" to={path}>{result.data.brand.name}</Link>
         )
       })
     } else if (name === 'search') {
       return Promise.resolve(
-        <Link className="dib pv1 link light-primary hover-primary" href={previousRoute.path}>{`Resultados para "${params.searchTerm}"`}</Link>
+        <Link className="dib pv1 link light-primary hover-primary" to={previousRoute.path}>{`Resultados para "${params.searchTerm}"`}</Link>
       )
     } else if (name === 'myOrders') {
       return Promise.resolve(
-        <Link className="dib pv1 link light-primary hover-primary" href={previousRoute.path}>{'Meus Pedidos'}</Link>
+        <Link className="dib pv1 link light-primary hover-primary" to={previousRoute.path}>{'Meus Pedidos'}</Link>
       )
     }
     return this.props.client.query({
@@ -112,7 +113,7 @@ class Breadcrumb extends Component {
     })
     .then((result) => {
       return (
-        <Link className="dib pv1 link light-primary hover-primary" href={result.data.product.categories[0].href}>{result.data.product.categories[0].name}</Link>
+        <Link className="dib pv1 link light-primary hover-primary" to={`/${result.data.product.categories[0].slug}/c`}>{result.data.product.categories[0].name}</Link>
       )
     })
   }

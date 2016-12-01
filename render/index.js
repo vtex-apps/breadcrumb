@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {equals} from 'ramda'
 
 import ApolloClient from 'apollo-client'
 import {withApollo} from 'react-apollo'
@@ -46,6 +45,21 @@ class Breadcrumb extends Component {
     this.generateLink.bind(this)
   }
 
+  compareHistory = (historyA, historyB) => {
+    if (historyA.length === historyB.length) {
+      let isEqual = true
+      historyA.map((route, index) => {
+        Object.keys(route).map((key) => {
+          if (route[key] !== historyB[index][key]) {
+            isEqual = false
+          }
+        })
+      })
+      return isEqual
+    }
+    return false
+  }
+
   componentWillMount () {
     const history = this.props.history || []
     const previousRoute = history.length > 1 ? history[history.length - 2] : {}
@@ -58,7 +72,7 @@ class Breadcrumb extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (!equals(nextProps.history, this.props.history)) {
+    if (!this.compareHistory(nextProps.history, this.props.history)) {
       const history = nextProps.history || []
       const previousRoute = history.length > 1 ? history[history.length - 2] : null
       this.generateLink(previousRoute).then((Link) => {

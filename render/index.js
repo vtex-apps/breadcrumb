@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
-import { connect } from 'react-redux'
-import Link from 'vtex.render/Link'
+import Link from 'vtex.render-runtime/components/Link'
 import { withApollo } from 'react-apollo'
 import { ShimmerLoading } from 'vtex.loading'
 import React, { Component, PropTypes } from 'react'
@@ -210,9 +209,4 @@ Breadcrumb.propTypes = {
   history: PropTypes.arrayOf(PropTypes.object),
 }
 
-const mapStateToProps = (state) => {
-  const {context: {history}, placeholders: {product: {settings: {slug}}}} = state
-  return { history, slug }
-}
-
-export default withApollo(connect(mapStateToProps)(Breadcrumb))
+export default withApollo(Breadcrumb)

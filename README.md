@@ -61,4 +61,4 @@ categories = ['eletronics','eletronics-computers']
 ```
 
 
-See an example at [Dreamstore]https://github.com/vtex-apps/dreamstore-theme/blob/master/react/components/GalleryWrapper.js) app
+See an example at [Dreamstore](https://github.com/vtex-apps/dreamstore-theme/blob/master/react/components/GalleryWrapper.js) app

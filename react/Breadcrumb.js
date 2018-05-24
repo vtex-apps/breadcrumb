@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'render'
 
-CSS_CLASSES = {
-  BREADCRUMB: 'vtex.breadcrumb pa4',
-  LINK: 'vtex.breadcrumb__link dib pv1 link light-primary hover-primary ph2',
+const CSS_CLASSES = {
+  BREADCRUMB: 'vtex-breadcrumb pa4',
+  LINK: 'vtex-breadcrumb__link dib pv1 link light-primary hover-primary ph2',
 }
 
 /**

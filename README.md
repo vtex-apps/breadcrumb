@@ -6,7 +6,6 @@ To use it in your code you should first add it as a dependencie into your app's 
 ```json
 "dependencies": {
     "vtex.breadcrumb": "0.x",
-    "vtex.category-menu": "0.x"
 }
 ```
 

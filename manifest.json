@@ -1,18 +1,37 @@
 {
-  "name": "breadcrumb",
   "vendor": "vtex",
+  "name": "breadcrumb",
   "version": "0.1.0",
   "title": "VTEX Breadcrumb",
-  "description": "",
-  "mustUpdateAt": "2017-11-08",
-  "categories": [],
-  "settingsSchema": {},
-  "dependencies": {
-    "vtex.render-runtime": "0.x",
-    "vtex.render-builder": "0.x",
-    "vtex.loading": "0.x"
+  "description": "Breadcrumb Component",
+  "defaultLocale": "pt-BR",
+  "builders": {
+    "pages": "0.x",
+    "react": "2.x"
   },
+  "mustUpdateAt": "2019-04-02",
+  "categories": [],
+  "registries": ["smartcheckout"],
+  "settingsSchema": {},
   "scripts": {
-    "postreleasy": "vtex publish"
+    "postreleasy": "vtex publish --public"
+  },
+  "billingOptions": {
+    "billingListeningRoute": "/_v/deactivateMePlease",
+    "termsURL": "http://route.to.the/terms",
+    "version": "0.1",
+    "free": true
+  },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/catalog_system/*"
+      }
+    }
+  ],
+  "dependencies": {
+    "vtex.store-graphql": "2.x"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "breadcrumb": {
+      "path": "/_v/breadcrumb"
+    }
+  },
+  "extensions": {
+    "breadcrumb": {
+      "component": "Breadcrumb"
+    }
+  }
+}

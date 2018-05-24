@@ -48,13 +48,13 @@ And then link the component in the extensions section in the pages.json file.
 
 The product's categories should appear as an array in one of this two formats:
 
-1 - 
+- 1  
 
 ```javascript
 categories = ['/Eletronics/','/Eletronics/Computers']
 ```
 
-2 -
+- 2
 
 ```javascript
 categories = ['eletronics','eletronics-computers']

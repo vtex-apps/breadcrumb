@@ -36,6 +36,8 @@ docs/_book/
 npm-debug.log
 .build/
 lib
+*.orig
+package-lock.json
 dist
 build
 lerna-debug.log

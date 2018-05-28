@@ -10,4 +10,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Breadcrumbs component
 
 ### Changed
-- Passing multiple terms to search page
+- Passing multiples terms to search page

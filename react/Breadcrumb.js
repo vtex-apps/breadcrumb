@@ -12,21 +12,30 @@ const CSS_CLASSES = {
  */
 export default class Breadcrumb extends Component {
   generateCategoriesLink(currentCat, list, i) {
-    const category = {}
-    const names = currentCat.split('-').filter(el => el !== '')
+    let category = ''
+    const names = currentCat.split('/')
 
-    category.name = names.length > 0 ? names[names.length - 1] : names[0]
-    category.url = list.slice(0, i + 1).join()
+    category = names.length > 0 ? names[names.length - 1] : names[0]
+
+    let countCat = (currentCat.match(/\//g) || []).length
+    countCat = countCat === 0 ? '' : countCat + 1
+
+    const search = `store/search${countCat}`
+    const params = {}
+
+    currentCat.split('/').map((el, i) => {
+      params[`term${i === 0 ? '' : i}`] = el
+    })
 
     return (
-      <span>
+      <span key={`categorie-${i}-id`}>
         /
         <Link
           className={CSS_CLASSES.LINK}
-          page="store/search"
-          params={{ term: category.url }}
+          page={search}
+          params={params}
         >
-          {category.name}
+          {category}
         </Link>
       </span>
     )
@@ -41,7 +50,6 @@ export default class Breadcrumb extends Component {
       if (el.includes('/')) {
         return el
           .replace(regex, '$1')
-          .replace('/', '-')
           .toLowerCase()
       }
 
@@ -49,7 +57,7 @@ export default class Breadcrumb extends Component {
     })
 
     if (result.length > 1) {
-      result = result.sort(function(e1, e2) {
+      result = result.sort(function (e1, e2) {
         if (e1.length < e2.length) {
           return -1
         }

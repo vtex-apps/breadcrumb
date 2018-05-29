@@ -28,7 +28,7 @@ export default class Breadcrumb extends Component {
     })
 
     return (
-      <span key={`categorie-${i}-id`}>
+      <span key={`category-${i}-id`}>
         /
         <Link
           className={CSS_CLASSES.LINK}

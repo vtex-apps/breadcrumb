@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Breadcrumb link redirect.
+- `manifest.json` dependencies
 
 ## [0.1.0] - 2018-05-29
 ### Added

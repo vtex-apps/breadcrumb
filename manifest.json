@@ -17,23 +17,5 @@
   "settingsSchema": {},
   "scripts": {
     "postreleasy": "vtex publish --public"
-  },
-  "billingOptions": {
-    "billingListeningRoute": "/_v/deactivateMePlease",
-    "termsURL": "http://route.to.the/terms",
-    "version": "0.1",
-    "free": true
-  },
-  "policies": [
-    {
-      "name": "outbound-access",
-      "attrs": {
-        "host": "{{account}}.vtexcommercestable.com.br",
-        "path": "/api/catalog_system/*"
-      }
-    }
-  ],
-  "dependencies": {
-    "vtex.store-graphql": "2.x"
   }
 }

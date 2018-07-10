@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { injectIntl, intlShape } from 'react-intl'
 import { Link } from 'render'
 
 const CSS_CLASSES = {
@@ -10,87 +11,56 @@ const CSS_CLASSES = {
 /**
  * Breadcrumb Component.
  */
-export default class Breadcrumb extends Component {
-  generateCategoriesLink(currentCat, list, i) {
-    let category = ''
-    const names = currentCat.split('/')
-
-    category = names.length > 0 ? names[names.length - 1] : names[0]
-
-    let countCat = (currentCat.match(/\//g) || []).length
-    countCat = countCat === 0 ? '' : countCat + 1
-
-    const search = `store/search${countCat}`
-    const params = {}
-
-    currentCat.split('/').map((el, i) => {
-      params[`term${i === 0 ? '' : i}`] = el
-    })
-
-    return (
-      <span key={`category-${i}-id`}>
-        /
-        <Link
-          className={CSS_CLASSES.LINK}
-          page={search}
-          params={params}
-        >
-          {category}
-        </Link>
-      </span>
-    )
+class Breadcrumb extends Component {
+  static propTypes = {
+    intl: intlShape.isRequired,
   }
 
-  treatCategories(list) {
-    let result = list || []
-
-    const regex = /^\/(.*)\//g
-
-    result = result.map(el => {
-      if (el.includes('/')) {
-        return el
-          .replace(regex, '$1')
-          .toLowerCase()
-      }
-
-      return el
-    })
-
-    if (result.length > 1) {
-      result = result.sort(function (e1, e2) {
-        if (e1.length < e2.length) {
-          return -1
-        }
-
-        if (e1.length > e2.length) {
-          return 1
-        }
-
-        return 0
-      })
+  getPageHint(categories) {
+    switch (categories.length) {
+      case 1:
+        return 'd'
+      case 2:
+        return 'c'
+      case 3:
+        return 'sc'
     }
+  }
 
-    return result
+  getCategories(categories) {
+    const categoriesSorted = categories.slice().sort((a, b) => a.length - b.length)
+    return categoriesSorted.map(category => {
+      const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
+      const categories = categoryStripped.split('/')
+      const [categoryKey] = categories.reverse()
+      const hint = this.getPageHint(categories)
+      return {
+        key: categoryKey.toLowerCase(),
+        value: `${categoryStripped}/${hint}`,
+      }
+    })
   }
 
   render() {
-    const { search, slug, categories } = this.props
-
-    const categoriesList = this.treatCategories(categories)
-
+    const { slug, categories } = this.props
+    const categoriesList = this.getCategories(categories)
     return (
       <div className={CSS_CLASSES.BREADCRUMB}>
         <Link className={CSS_CLASSES.LINK} page="store">
-          Home
+          {this.props.intl.formatMessage({ id: 'breadcrumb.home' })}
         </Link>
         {categoriesList.map((category, i) => {
-          return this.generateCategoriesLink(category, categoriesList, i)
+          return (
+            <span key={`${category.key}-${i}`}>
+              /
+              <Link className={CSS_CLASSES.LINK} to={`/${category.value}`}>
+                {category.key}
+              </Link>
+            </span>
+          )
         })}
         /
-        <span className="ph2">
-          {categories ? '' : search}
-          {slug}
-        </span>
+        <span className="ph2"> {slug} </span>
       </div>
     )
   }
@@ -104,3 +74,6 @@ Breadcrumb.propTypes = {
   /** Categories*/
   categories: PropTypes.arrayOf(PropTypes.string),
 }
+
+export default injectIntl(Breadcrumb)
+

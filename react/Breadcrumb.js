@@ -28,7 +28,9 @@ class Breadcrumb extends Component {
   }
 
   getCategories(categories) {
-    const categoriesSorted = categories.slice().sort((a, b) => a.length - b.length)
+    const categoriesSorted = categories
+      .slice()
+      .sort((a, b) => a.length - b.length)
     return categoriesSorted.map(category => {
       const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
       const categories = categoryStripped.split('/')
@@ -42,7 +44,14 @@ class Breadcrumb extends Component {
   }
 
   render() {
-    const { slug, categories } = this.props
+    const { slug, productQuery } = this.props
+
+    if (productQuery.loading || !productQuery.product.categories) {
+      return null
+    }
+
+    const { categories } = productQuery.product
+
     const categoriesList = this.getCategories(categories)
     return (
       <div className={CSS_CLASSES.BREADCRUMB}>
@@ -71,9 +80,16 @@ Breadcrumb.propTypes = {
   search: PropTypes.string,
   /** Product's slug**/
   slug: PropTypes.string,
-  /** Categories*/
-  categories: PropTypes.arrayOf(PropTypes.string),
+  /** Product data**/
+  productQuery: {
+    /** Product**/
+    product: PropTypes.shape({
+      /** Categories*/
+      categories: PropTypes.arrayOf(PropTypes.string),
+    }),
+    /** Loading**/
+    loading: PropTypes.bool.isRequired,
+  },
 }
 
 export default injectIntl(Breadcrumb)
-

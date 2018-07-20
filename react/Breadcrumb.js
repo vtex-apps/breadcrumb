@@ -54,7 +54,6 @@ class Breadcrumb extends Component {
         <Link className={CSS_CLASSES.LINK} page="store">
           {this.props.intl.formatMessage({ id: 'breadcrumb.home' })}
         </Link>
-<<<<<<< HEAD
         {categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
             /
@@ -63,18 +62,6 @@ class Breadcrumb extends Component {
             </Link>
           </span>
         ))}
-=======
-        {categoriesList && categoriesList.map((category, i) => {
-          return (
-            <span key={`${category.key}-${i}`}>
-              /
-              <Link className={CSS_CLASSES.LINK} to={`/${category.value}`}>
-                {category.key}
-              </Link>
-            </span>
-          )
-        })}
->>>>>>> Gets product from cache
         /
         <span className="ph2"> {slug} </span>
       </div>

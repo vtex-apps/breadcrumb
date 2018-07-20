@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - PropTypes warning.
 
+### Added
+- Stale cache for product preview
+
 ## [0.1.3] - 2018-07-19
 ### Fixed
 - receiving categories from productQuery and added loading validation.

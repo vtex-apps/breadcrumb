@@ -12,10 +12,6 @@ const CSS_CLASSES = {
  * Breadcrumb Component.
  */
 class Breadcrumb extends Component {
-  static propTypes = {
-    intl: intlShape.isRequired,
-  }
-
   getPageHint(categories) {
     switch (categories.length) {
       case 1:
@@ -37,7 +33,7 @@ class Breadcrumb extends Component {
       const [categoryKey] = categories.reverse()
       const hint = this.getPageHint(categories)
       return {
-        key: categoryKey.toLowerCase(),
+        name: categoryKey.toLowerCase(),
         value: `${categoryStripped}/${hint}`,
       }
     })
@@ -58,16 +54,14 @@ class Breadcrumb extends Component {
         <Link className={CSS_CLASSES.LINK} page="store">
           {this.props.intl.formatMessage({ id: 'breadcrumb.home' })}
         </Link>
-        {categoriesList.map((category, i) => {
-          return (
-            <span key={`${category.key}-${i}`}>
-              /
-              <Link className={CSS_CLASSES.LINK} to={`/${category.value}`}>
-                {category.key}
-              </Link>
-            </span>
-          )
-        })}
+        {categoriesList.map(({ name, value }, i) => (
+          <span key={`category-${i}`}>
+            /
+            <Link className={CSS_CLASSES.LINK} to={`/${value}`}>
+              {name}
+            </Link>
+          </span>
+        ))}
         /
         <span className="ph2"> {slug} </span>
       </div>
@@ -76,20 +70,22 @@ class Breadcrumb extends Component {
 }
 
 Breadcrumb.propTypes = {
-  /** Search term used **/
+  /** Intl instance. */
+  intl: intlShape.isRequired,
+  /** Search term. */
   search: PropTypes.string,
-  /** Product's slug**/
+  /** Product's slug. */
   slug: PropTypes.string,
-  /** Product data**/
-  productQuery: {
-    /** Product**/
+  /** Product's query. */
+  productQuery: PropTypes.shape({
+    /** Product. */
     product: PropTypes.shape({
-      /** Categories*/
+      /** Product's categories. */
       categories: PropTypes.arrayOf(PropTypes.string),
     }),
-    /** Loading**/
+    /** Loading. */
     loading: PropTypes.bool.isRequired,
-  },
+  }),
 }
 
 export default injectIntl(Breadcrumb)

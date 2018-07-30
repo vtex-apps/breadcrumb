@@ -40,13 +40,16 @@ class Breadcrumb extends Component {
   }
 
   render() {
-    const { slug, productQuery: { categories } } = this.props
+    const {
+      slug,
+      productQuery: { product, loading },
+    } = this.props
 
-    if (!categories) {
+    if (loading || !product || !product.categories) {
       return null
     }
 
-    const categoriesList = this.getCategories(categories)
+    const categoriesList = this.getCategories(product.categories)
     return (
       <div className={CSS_CLASSES.BREADCRUMB}>
         <Link className={CSS_CLASSES.LINK} page="store">
@@ -76,8 +79,11 @@ Breadcrumb.propTypes = {
   slug: PropTypes.string,
   /** Product's query. */
   productQuery: PropTypes.shape({
-    /** Product's categories. */
-    categories: PropTypes.arrayOf(PropTypes.string),
+    /** Product's info */
+    product: PropTypes.shape({
+      /** Product's categories. */
+      categories: PropTypes.arrayOf(PropTypes.string),
+    }),
   }),
 }
 

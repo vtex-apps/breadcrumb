@@ -1,18 +1,18 @@
 /* eslint-env jest */
-import { mount } from 'enzyme'
 import React from 'react'
+import { mount } from 'enzyme'
+import { Link } from '../__mocks__/render'
 import { IntlProvider } from 'react-intl'
 
 import Breadcrumb from '../Breadcrumb'
 
-describe('<BreadCrumbs /> component', () => {
+describe('<BreadCrumb /> component', () => {
   let wrapper = null
-  // let searchQueryMock = null
-  // let facetsQueryMock = null
 
   beforeEach(() => {
     const messages = require('../locales/en-US')
     const props = {
+      slug: 'test',
       productQuery: {
         loading: false,
         product: { categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'] },
@@ -28,16 +28,10 @@ describe('<BreadCrumbs /> component', () => {
 
   it('should be rendered', () => {
     expect(wrapper).toBeDefined()
+    expect(wrapper.find('.vtex-breadcrumb')).toHaveLength(1)
   })
 
-  it('should match snapshot', () => {
-    expect(wrapper.container).toMatchSnapshot()
-  })
-
-  it('should render items', () => {
-    expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
-    expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__img-container').length
-    ).toBe(3) // set to be infinite
+  it('should render links', () => {
+    expect(wrapper.find('.vtex-breadcrumb__link')).toHaveLength(3) // set to be infinite
   })
 })

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ## Changed
 - Remove pages sufixes (`/s`, `/d`, `/sc`)
+- Change the props passed to the Breadcrumbs and adequate it to the design specified.
 
 ## [0.1.5] - 2018-08-01
 ### Added

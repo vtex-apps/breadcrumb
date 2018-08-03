@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { injectIntl, intlShape } from 'react-intl'
 import { Link } from 'render'
 
+import HomeIcon from './HomeIcon'
+
 const CSS_CLASSES = {
   BREADCRUMB: 'vtex-breadcrumb pa4 gray',
   LINK: 'vtex-breadcrumb__link dib pv1 link light-primary hover-primary ph2',
@@ -50,11 +52,11 @@ class Breadcrumb extends Component {
     return (
       <div className={CSS_CLASSES.BREADCRUMB}>
         <Link className={CSS_CLASSES.LINK} page="store">
-          {this.props.intl.formatMessage({ id: 'breadcrumb.home' })}
+          <HomeIcon />
         </Link>
         {categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
-            /
+            >
             <Link className={CSS_CLASSES.LINK} to={`/${value}`}>
               {name}
             </Link>
@@ -63,7 +65,7 @@ class Breadcrumb extends Component {
 
         {term && (
           <Fragment>
-            /
+            >
             <span className="ph2"> {term} </span>
           </Fragment>
         )}

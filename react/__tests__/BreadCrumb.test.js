@@ -1,8 +1,6 @@
 /* eslint-env jest */
 import React from 'react'
 import { mount } from 'enzyme'
-import { Link } from '../__mocks__/render'
-import { IntlProvider } from 'react-intl'
 
 import Breadcrumb from '../Breadcrumb'
 
@@ -10,20 +8,12 @@ describe('<BreadCrumb /> component', () => {
   let wrapper = null
 
   beforeEach(() => {
-    const messages = require('../locales/en-US')
     const props = {
-      slug: 'test',
-      productQuery: {
-        loading: false,
-        product: { categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'] },
-      },
+      term: 'test',
+      categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'],
     }
 
-    wrapper = mount(
-      <IntlProvider locale="en-US" messages={messages}>
-        <Breadcrumb {...props} />
-      </IntlProvider>
-    )
+    wrapper = mount(<Breadcrumb {...props} />)
   })
 
   it('should be rendered', () => {

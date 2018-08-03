@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { injectIntl, intlShape } from 'react-intl'
 import { Link } from 'render'
 
 const CSS_CLASSES = {
-  BREADCRUMB: 'vtex-breadcrumb pa4',
+  BREADCRUMB: 'vtex-breadcrumb pa4 gray',
   LINK: 'vtex-breadcrumb__link dib pv1 link light-primary hover-primary ph2',
 }
 
@@ -40,16 +40,13 @@ class Breadcrumb extends Component {
   }
 
   render() {
-    const {
-      slug,
-      productQuery: { product, loading },
-    } = this.props
+    const { term, categories } = this.props
 
-    if (loading || !product || !product.categories) {
+    if (!categories) {
       return null
     }
 
-    const categoriesList = this.getCategories(product.categories)
+    const categoriesList = this.getCategories(categories)
     return (
       <div className={CSS_CLASSES.BREADCRUMB}>
         <Link className={CSS_CLASSES.LINK} page="store">
@@ -63,8 +60,13 @@ class Breadcrumb extends Component {
             </Link>
           </span>
         ))}
-        /
-        <span className="ph2"> {slug} </span>
+
+        {term && (
+          <Fragment>
+            /
+            <span className="ph2"> {term} </span>
+          </Fragment>
+        )}
       </div>
     )
   }
@@ -73,18 +75,10 @@ class Breadcrumb extends Component {
 Breadcrumb.propTypes = {
   /** Intl instance. */
   intl: intlShape.isRequired,
-  /** Search term. */
-  search: PropTypes.string,
-  /** Product's slug. */
-  slug: PropTypes.string,
-  /** Product's query. */
-  productQuery: PropTypes.shape({
-    /** Product's info */
-    product: PropTypes.shape({
-      /** Product's categories. */
-      categories: PropTypes.arrayOf(PropTypes.string),
-    }),
-  }),
+  /** Search term or product slug. */
+  term: PropTypes.string,
+  /** Product's categories. */
+  categories: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default injectIntl(Breadcrumb)

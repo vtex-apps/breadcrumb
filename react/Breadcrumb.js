@@ -12,17 +12,6 @@ const CSS_CLASSES = {
  * Breadcrumb Component.
  */
 class Breadcrumb extends Component {
-  getPageHint(categories) {
-    switch (categories.length) {
-      case 1:
-        return 'd'
-      case 2:
-        return 'c'
-      case 3:
-        return 'sc'
-    }
-  }
-
   getCategories(categories) {
     const categoriesSorted = categories
       .slice()
@@ -31,10 +20,10 @@ class Breadcrumb extends Component {
       const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
       const categories = categoryStripped.split('/')
       const [categoryKey] = categories.reverse()
-      const hint = this.getPageHint(categories)
+
       return {
         name: categoryKey.toLowerCase(),
-        value: `${categoryStripped}/${hint}`,
+        value: categoryStripped,
       }
     })
   }

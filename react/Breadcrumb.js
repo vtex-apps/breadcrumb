@@ -2,12 +2,11 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'render'
 
-import HomeIcon from './HomeIcon'
+import HomeIcon from './icons/HomeIcon'
+import ArrowIcon from './icons/ArrowIcon'
 
-const CSS_CLASSES = {
-  BREADCRUMB: 'vtex-breadcrumb pa4 gray',
-  LINK: 'vtex-breadcrumb__link dib pv1 link ph2 gray hover-near-black',
-}
+const LINK_CLASS_NAME =
+  'vtex-breadcrumb__link dib pv1 link ph2 gray hover-near-black'
 
 /**
  * Breadcrumb Component.
@@ -38,14 +37,16 @@ class Breadcrumb extends Component {
 
     const categoriesList = this.getCategories(categories)
     return (
-      <div className={CSS_CLASSES.BREADCRUMB}>
-        <Link className={CSS_CLASSES.LINK} page="store">
+      <div className="vtex-breadcrumb pa4 gray">
+        <Link className={LINK_CLASS_NAME} page="store">
           <HomeIcon />
         </Link>
         {categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
-            <span className="ph2">></span>
-            <Link className={CSS_CLASSES.LINK} to={`/${value}`}>
+            <span className="ph2">
+              <ArrowIcon />
+            </span>
+            <Link className={LINK_CLASS_NAME} to={`/${value}`}>
               {name}
             </Link>
           </span>
@@ -53,7 +54,9 @@ class Breadcrumb extends Component {
 
         {term && (
           <Fragment>
-            <span className="ph2">></span>
+            <span className="ph2">
+              <ArrowIcon />
+            </span>
             <span className="ph2 near-black"> {term} </span>
           </Fragment>
         )}

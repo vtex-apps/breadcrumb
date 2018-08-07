@@ -26,7 +26,7 @@ export default class HomeIcon extends Component {
         height={size}
         viewBox="0 0 576 512"
         xmlns="http://www.w3.org/2000/svg"
-        className="relative"
+        className="vtex-icon__home-icon relative"
         style={{ top: '5px' }}
       >
         <path

@@ -57,7 +57,9 @@ class Breadcrumb extends Component {
             <span className="ph2">
               <ArrowIcon />
             </span>
-            <span className="ph2 near-black"> {term} </span>
+            <span className="vtex-breadcrumbs__term ph2 near-black">
+              {term}
+            </span>
           </Fragment>
         )}
       </div>

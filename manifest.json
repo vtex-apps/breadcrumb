@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "breadcrumb",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "title": "VTEX Breadcrumb",
   "description": "Breadcrumb Component",
   "defaultLocale": "pt-BR",
@@ -11,7 +11,9 @@
   },
   "mustUpdateAt": "2019-04-02",
   "categories": [],
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "settingsSchema": {},
   "scripts": {
     "postreleasy": "vtex publish --public"

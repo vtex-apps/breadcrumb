@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import { Link } from 'render'
 
-import HomeIcon from './icons/HomeIcon'
 import ArrowIcon from './icons/ArrowIcon'
+import HomeIcon from './icons/HomeIcon'
 
 const LINK_CLASS_NAME =
   'vtex-breadcrumb__link dib pv1 link ph2 gray hover-near-black'
@@ -37,7 +37,7 @@ class Breadcrumb extends Component {
 
     const categoriesList = this.getCategories(categories)
     return (
-      <div className="vtex-breadcrumb pa4 gray">
+      <div className="vtex-breadcrumb vtex-page-padding pb4 pt4 gray">
         <Link className={LINK_CLASS_NAME} page="store">
           <HomeIcon />
         </Link>

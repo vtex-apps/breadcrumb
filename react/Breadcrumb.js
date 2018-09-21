@@ -37,7 +37,7 @@ class Breadcrumb extends Component {
 
     const categoriesList = this.getCategories(categories)
     return (
-      <div className="vtex-breadcrumb pb4 pt4 gray">
+      <div className="vtex-breadcrumb dn dib-ns pb4 pt4 gray">
         <Link className={LINK_CLASS_NAME} page="store">
           <HomeIcon />
         </Link>

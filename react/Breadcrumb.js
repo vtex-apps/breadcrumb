@@ -58,7 +58,7 @@ class Breadcrumb extends Component {
               <ArrowIcon />
             </span>
             <span className="vtex-breadcrumbs__term ph2 near-black">
-              {term}
+              {decodeURIComponent(term)}
             </span>
           </Fragment>
         )}

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, ReactNode } from 'react'
 import { Link } from 'render'
 
 import ArrowIcon from './icons/ArrowIcon'
@@ -8,11 +8,36 @@ import HomeIcon from './icons/HomeIcon'
 const LINK_CLASS_NAME =
   'vtex-breadcrumb__link dib pv1 link ph2 gray hover-near-black'
 
+interface DefaultProps {
+  categories: Array<string>
+}
+  
+interface Props extends DefaultProps {
+  term?: string
+}
+
+type Category = {
+  name: string
+  value: string
+}
+
 /**
  * Breadcrumb Component.
  */
-class Breadcrumb extends Component {
-  getCategories(categories) {
+class Breadcrumb extends Component<Props> {
+  public static readonly defaultProps = {
+    categories: [],
+  }
+
+  public static readonly propTypes = {
+    /** Search term or product slug. */
+    term: PropTypes.string,
+    /** Product's categories. */
+    categories: PropTypes.arrayOf(PropTypes.string),
+  }
+
+  private get categoriesList(): Array<Category> {
+    const { categories } = this.props
     const categoriesSorted = categories
       .slice()
       .sort((a, b) => a.length - b.length)
@@ -28,20 +53,19 @@ class Breadcrumb extends Component {
     })
   }
 
-  render() {
+  public render(): ReactNode {
     const { term, categories } = this.props
 
-    if (!categories) {
+    if (categories.length === 0) {
       return null
     }
 
-    const categoriesList = this.getCategories(categories)
     return (
       <div className="vtex-breadcrumb dn db-ns pb4 pt4 gray">
         <Link className={LINK_CLASS_NAME} page="store">
           <HomeIcon />
         </Link>
-        {categoriesList.map(({ name, value }, i) => (
+        {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
             <span className="ph2">
               <ArrowIcon />
@@ -65,13 +89,6 @@ class Breadcrumb extends Component {
       </div>
     )
   }
-}
-
-Breadcrumb.propTypes = {
-  /** Search term or product slug. */
-  term: PropTypes.string,
-  /** Product's categories. */
-  categories: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default Breadcrumb

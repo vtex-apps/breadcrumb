@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 
 /**
  * Link Mocked Component.
  */
 export class Link extends Component {
-  render() {
+  render(): ReactNode {
     return (
       <a href="#">{this.props.children}</a>
     )

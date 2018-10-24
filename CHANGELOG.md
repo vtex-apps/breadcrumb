@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.4] - 2018-10-24
+### Fixed
+- hide breadcrumb for mobile viewport.
+
 ## [0.2.3] - 2018-09-14
 ### Removed
 - Remove page padding.

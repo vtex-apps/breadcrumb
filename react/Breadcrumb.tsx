@@ -70,7 +70,7 @@ class Breadcrumb extends Component<Props> {
             <span className="ph2">
               <ArrowIcon />
             </span>
-            <Link className={LINK_CLASS_NAME} to={`/${value}`}>
+            <Link className={`${LINK_CLASS_NAME} link link--visited`} to={`/${value}`}>
               {name}
             </Link>
           </span>

@@ -30,7 +30,7 @@ export default class HomeIcon extends Component {
         style={{ top: '5px' }}
         color={fillColor}
       >
-        <use href="#ds-home" />
+        <use href="#home" />
       </svg>
     )
   }

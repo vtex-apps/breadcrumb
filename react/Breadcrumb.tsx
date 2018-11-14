@@ -63,7 +63,7 @@ class Breadcrumb extends Component<Props> {
     return (
       <div className="vtex-breadcrumb dn db-ns pb4 pt4">
         <Link className={LINK_CLASS_NAME} page="store/home">
-          <HomeIcon />
+          Home
         </Link>
         {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>

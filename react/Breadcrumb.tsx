@@ -6,7 +6,7 @@ import ArrowIcon from './icons/ArrowIcon'
 import HomeIcon from './icons/HomeIcon'
 
 const LINK_CLASS_NAME =
-  'vtex-breadcrumb__link dib pv1 link ph2 gray hover-near-black'
+  'vtex-breadcrumb__link dib pv1 link ph2 c-muted-2 hover-c-link'
 
 interface DefaultProps {
   categories: Array<string>
@@ -61,9 +61,9 @@ class Breadcrumb extends Component<Props> {
     }
 
     return (
-      <div className="vtex-breadcrumb dn db-ns pb4 pt4 gray">
+      <div className="vtex-breadcrumb dn db-ns pb4 pt4">
         <Link className={LINK_CLASS_NAME} page="store/home">
-          <HomeIcon />
+          Home
         </Link>
         {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
@@ -81,7 +81,7 @@ class Breadcrumb extends Component<Props> {
             <span className="ph2">
               <ArrowIcon />
             </span>
-            <span className="vtex-breadcrumbs__term ph2 near-black">
+            <span className="vtex-breadcrumbs__term ph2 c-on-base">
               {term}
             </span>
           </Fragment>

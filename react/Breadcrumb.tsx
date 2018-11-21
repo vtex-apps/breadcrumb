@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component, Fragment, ReactNode } from 'react'
 import { Link } from 'render'
+import unorm from 'unorm'
 
 import ArrowIcon from './icons/ArrowIcon'
 import HomeIcon from './icons/HomeIcon'
@@ -45,7 +46,8 @@ class Breadcrumb extends Component<Props> {
       let categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
       const categories = categoryStripped.split('/')
       const [categoryKey] = categories.reverse()
-      categoryStripped = categories.length === 1 ? `${categoryStripped.toLowerCase()}/d` : categoryStripped
+      categoryStripped = unorm.nfd(categoryStripped).toLowerCase().replace(/[\u0300-\u036f]/g, '')
+      categoryStripped += categories.length === 1 ? '/d' : ''
       return {
         name: categoryKey.toLowerCase(),
         value: categoryStripped,

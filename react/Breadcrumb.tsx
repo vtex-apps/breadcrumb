@@ -46,7 +46,12 @@ class Breadcrumb extends Component<Props> {
       let categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
       const categories = categoryStripped.split('/')
       const [categoryKey] = categories.reverse()
-      categoryStripped = unorm.nfd(categoryStripped).toLowerCase().replace(/[\u0300-\u036f]/g, '')
+      categoryStripped = unorm
+        .nfd(categoryStripped)
+        .toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .replace(/[-\s]+/g, '-')
       categoryStripped += categories.length === 1 ? '/d' : ''
       return {
         name: categoryKey.toLowerCase(),

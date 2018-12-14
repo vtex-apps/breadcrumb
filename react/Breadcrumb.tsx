@@ -6,8 +6,9 @@ import unorm from 'unorm'
 import ArrowIcon from './icons/ArrowIcon'
 import HomeIcon from './icons/HomeIcon'
 
-const LINK_CLASS_NAME =
-  'vtex-breadcrumb__link dib pv1 link ph2 c-muted-2 hover-c-link'
+import breadcrumb from './breadcrumb.css'
+
+const LINK_CLASS_NAME = `${breadcrumb.link} dib pv1 link ph2 c-muted-2 hover-c-link`
 
 interface DefaultProps {
   categories: Array<string>
@@ -44,15 +45,15 @@ class Breadcrumb extends Component<Props> {
       .sort((a, b) => a.length - b.length)
     return categoriesSorted.map(category => {
       let categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
-      const categories = categoryStripped.split('/')
-      const [categoryKey] = categories.reverse()
+      const currentCategories = categoryStripped.split('/')
+      const [categoryKey] = currentCategories.reverse()
       categoryStripped = unorm
         .nfd(categoryStripped)
         .toLowerCase()
         .replace(/[\u0300-\u036f]/g, '')
         .trim()
         .replace(/[-\s]+/g, '-')
-      categoryStripped += categories.length === 1 ? '/d' : ''
+      categoryStripped += currentCategories.length === 1 ? '/d' : ''
       return {
         name: categoryKey.toLowerCase(),
         value: categoryStripped,
@@ -63,18 +64,18 @@ class Breadcrumb extends Component<Props> {
   public render(): ReactNode {
     const { term, categories } = this.props
 
-    if (categories.length === 0) {
+    if (!categories.length) {
       return null
     }
 
     return (
-      <div className="vtex-breadcrumb dn db-ns pb4 pt4">
+      <div className={`${breadcrumb.container} dn db-ns pb4 pt4`}>
         <Link className={LINK_CLASS_NAME} page="store/home">
           Home
         </Link>
         {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
-            <span className="ph2">
+            <span className={`${breadcrumb.arrow} ph2`}>
               <ArrowIcon />
             </span>
             <Link className={LINK_CLASS_NAME} to={`/${value}`}>
@@ -85,10 +86,10 @@ class Breadcrumb extends Component<Props> {
 
         {term && (
           <Fragment>
-            <span className="ph2">
+            <span className={`${breadcrumb.arrow} ph2`}>
               <ArrowIcon />
             </span>
-            <span className="vtex-breadcrumbs__term ph2 c-on-base">
+            <span className={`${breadcrumb.term} ph2 c-on-base`}>
               {term}
             </span>
           </Fragment>

@@ -1,6 +1,6 @@
 {
   "breadcrumb": {
     "blocks": [],
-    "component": "Breadcrumb"
+    "inheritComponent": true
   }
 }

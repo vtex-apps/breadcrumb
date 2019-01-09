@@ -1,7 +1,5 @@
 {
   "breadcrumb": {
-    "allowed": [],
-    "required": [],
     "component": "Breadcrumb"
   }
 }

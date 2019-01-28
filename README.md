@@ -1,6 +1,13 @@
 # Breadcrumb
 Breadcrumb is a canonical component that any VTEX app can use.
 
+## Release schedule
+| Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Dreamstore Compatibility
+| :--:     | :---:               |  :---:          | :---:                 | :---:       | :---: 
+| [0.x]    | **Maintenance LTS** |  2018-05-29     | 2018-11-20            | March 2019  | 1.x
+| [1.x]    | **Current Release** |  2018-11-20     |                       |             | 2.x
+
+
 To use it in your code you should first add it as a dependencie into your app's ```manifest.json```, like:
 
 ```json

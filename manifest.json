@@ -16,5 +16,8 @@
   ],
   "scripts": {
     "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.use-svg": "1.x"
   }
 }

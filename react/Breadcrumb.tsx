@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { Component, Fragment, ReactNode } from 'react'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import unorm from 'unorm'
-
-import ArrowIcon from './icons/ArrowIcon'
-import HomeIcon from './icons/HomeIcon'
+import { Icon } from 'vtex.use-svg'
 
 import breadcrumb from './breadcrumb.css'
 
 const LINK_CLASS_NAME = `${breadcrumb.link} dib pv1 link ph2 c-muted-2 hover-c-link`
+const ARROW_ICON = <Icon id="nav-angle--right" size={12} className="c-muted-1"/>
 
 interface DefaultProps {
   categories: Array<string>
@@ -69,14 +68,14 @@ class Breadcrumb extends Component<Props> {
     }
 
     return (
-      <div className={`${breadcrumb.container} dn db-ns pb4 pt4`}>
-        <Link className={LINK_CLASS_NAME} page="store/home">
+      <div className={`${breadcrumb.container} dn db-ns pv3`}>
+        <Link className={LINK_CLASS_NAME} page="store.home">
           Home
         </Link>
         {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`}>
             <span className={`${breadcrumb.arrow} ph2`}>
-              <ArrowIcon />
+              {ARROW_ICON}
             </span>
             <Link className={LINK_CLASS_NAME} to={`/${value}`}>
               {name}
@@ -87,7 +86,7 @@ class Breadcrumb extends Component<Props> {
         {term && (
           <Fragment>
             <span className={`${breadcrumb.arrow} ph2`}>
-              <ArrowIcon />
+              {ARROW_ICON}
             </span>
             <span className={`${breadcrumb.term} ph2 c-on-base`}>
               {term}

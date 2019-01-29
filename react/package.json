@@ -3,7 +3,8 @@
   "description": "A Breadcrumb component.",
   "scripts": {
     "pretest": "yarn",
-    "test": "jest"
+    "test": "jest",
+    "lint": "tsc --noEmit --pretty && tslint -c tslint.json './**/*.ts'"
   },
   "author": "VTEX",
   "license": "ISC",

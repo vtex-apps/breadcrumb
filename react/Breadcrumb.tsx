@@ -68,8 +68,8 @@ class Breadcrumb extends Component<Props> {
 
     return (
       <div className={`${breadcrumb.container} dn db-ns pv3`}>
-        <Link className={LINK_CLASS_NAME} page="store.home">
-          <IconHome size={16}/>
+        <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
+          <IconHome size={26}/>
         </Link>
         {this.categoriesList.map(({ name, value }, i) => (
           <span key={`category-${i}`} className={`${breadcrumb.arrow} ph2 c-muted-2`}>

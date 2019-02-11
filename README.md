@@ -1,70 +1,66 @@
-# Breadcrumb
-Breadcrumb is a canonical component that any VTEX app can use.
+# VTEX Breadcrumb
+
+## Description
+The VTEX Breadcrumb app is a secondary navigation scheme that reveals the user location on the site.
+This is a VTEX app that is used by Dreamstore product.
+
+:loudspeaker: **Disclaimer:** Don't fork this project. Use, contribute, or open issue with your feature request.
 
 ## Release schedule
 | Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Dreamstore Compatibility
 | :--:     | :---:               |  :---:          | :---:                 | :---:       | :---: 
 | [0.x]    | **Maintenance LTS** |  2018-05-29     | 2018-11-20            | March 2019  | 1.x
 | [1.x]    | **Current Release** |  2018-11-20     |                       |             | 2.x
+See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for more information.
 
+## Table of Contents
+- [Usage](#usage)
+- [API](#api)
+  - [Blocks API](#blocks-api)
+    - [Configuration](#configuration)
+  - [Styles API](#styles-api)
+- [Troubleshooting](#troubleshooting)
+- [Tests](#tests)
 
-To use it in your code you should first add it as a dependencie into your app's ```manifest.json```, like:
+## Usage
+
+This app uses our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
+
+To use this app you need to add it in your dependencies in the `manifest.json` file.
 
 ```json
 "dependencies": {
-    "vtex.breadcrumb": "0.x",
+    "vtex.breadcrumb": "1.x",
 }
 ```
 
-## Usage
-You can use it in your code through an extension point in your app.
+Then, add `breadcrumb` block into your app theme, like we do in our [Dreamstore app](https://github.com/vtex-apps/dreamstore/blob/master/store/blocks.json). 
 
-```javascript
-    <ExtensionPoint
-        id="breadcrumb"
-        search={query}
-        categories={categories}
-    />
-```
+### Blocks API
+:construction: :construction: :construction:
 
-And then link the component in the extensions section in the pages.json file.
+This app has an interface that describes what rules must be implemented by a block when you want to use the `breadcrumb` block.
 
-```javascript
-{
- "pages": {
-    "store/product": {
-      "path": "/:slug/p"
-    }
-  },
-  "extensions": {
-    "store/product/breadcrumb": {
-      "component": "vtex.breadcrumb/Breadcrumb"
-    }
+```json
+  "breadcrumb": {
+    "component": "Breadcrumb"
   }
-}
 ```
+
+#### Configuration 
+Through the Storefront you can change the behavior and interface of `breadcrumb`. But, you can also make adjusts in your theme app, like Dreamstore does.
 
 | Prop name          | Type           | Description                                                                 |
 | ------------------ | -------------- | --------------------------------------------------------------------------- |
-| `search`           | `String`       | Term used to get to that specific page on the website                       |
-| `slug`             | `String`       | Product's unique identification stored on the database                      |
-| `categories`       | `Array(String)`| List of categories which the product belongs to                             |
+| `term`             | `String`       | Term used to get to that specific page on the website                       |
+| `categories`       | `Array(String)`| List of categories which the product belongs to  							|
 
-## Extra info:
+### Styles API
+:construction: :construction: :construction:
 
-The product's categories should appear as an array in one of this two formats:
+## Troubleshooting
+You can check if others are passing through similar issues [here](https://github.com/vtex-apps/breadcrumb/issues). Also feel free to [open issues](https://github.com/vtex-apps/breadcrumb/issues/new) or contribute with pull requests.
 
-- 1  
+## Tests
 
-```javascript
-categories = ['/Eletronics/','/Eletronics/Computers']
-```
-
-- 2
-
-```javascript
-categories = ['eletronics','eletronics-computers']
-```
-
-
-See an example at [Dreamstore](https://github.com/vtex-apps/dreamstore-theme/blob/master/react/components/GalleryWrapper.js) app
+To execute our tests go to react/ folder and run yarn test

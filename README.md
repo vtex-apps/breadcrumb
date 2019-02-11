@@ -1,7 +1,7 @@
 # VTEX Breadcrumb
 
 ## Description
-The VTEX BreadCrumb is a secondary navigation scheme that reveals the user location on the store and it is used by the Dreamstore product..
+The VTEX BreadCrumb is a secondary navigation scheme that reveals the user location on the store and it is used by the Dreamstore product.
 
 :loudspeaker: **Disclaimer:** Don't fork this project, use, contribute, or open issue with your feature request.
 

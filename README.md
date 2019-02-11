@@ -53,7 +53,7 @@ Through the Storefront, you can change the behavior and interface of the breadcr
 
 | Prop name          | Type           | Description                                                                 |
 | ------------------ | -------------- | --------------------------------------------------------------------------- |
-| `term`           | `String`       | Search term or product slug                       |
+| `term`           | `String`       | Search term that is used to get to that specific page on the website or product slug that is the unique identification stored on the database                     |
 | `categories`       | `Array(String)`| List of categories which the product belongs to                             |
 
 
@@ -78,8 +78,4 @@ categories = ['eletronics','eletronics-computers']
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
 
 ## Tests
-Run the tests with this command.
-
-```
-cd react && yarn test
-```
+To execute our tests go to `react/` folder and run `yarn test`

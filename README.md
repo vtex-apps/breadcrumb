@@ -1,7 +1,7 @@
 # VTEX Breadcrumb
 
 ## Description
-The VTEX BreadCrumb is an app that shows a hierarchy of the current page in relation to the store structure and it is used by the Dreamstore product.
+The VTEX BreadCrumb is a secondary navigation scheme that reveals the user location on the store and it is used by the Dreamstore product..
 
 :loudspeaker: **Disclaimer:** Don't fork this project, use, contribute, or open issue with your feature request.
 
@@ -29,11 +29,11 @@ To use this app, you need to add it in your `dependencies` in the `manifest.json
 
 ```json
   dependencies: {
-    "vtex.breadcrumb": "0.x"
+    "vtex.breadcrumb": "1.x"
   }
 ```
 
-Then, add the `breadcrumb` block into our app theme, as we do in our [Dreamstore app](https://github.com/vtex-apps/dreamstore/blob/master/store/blocks.json). 
+Then, add the `breadcrumb` block into our app theme, as we do in our [Product Details app](https://github.com/vtex-apps/product-details/blob/master/store/blocks.json). 
 
 ### Blocks API
 :construction: :construction: :construction:
@@ -53,8 +53,7 @@ Through the Storefront, you can change the behavior and interface of the breadcr
 
 | Prop name          | Type           | Description                                                                 |
 | ------------------ | -------------- | --------------------------------------------------------------------------- |
-| `search`           | `String`       | Term used to get to that specific page on the website                       |
-| `slug`             | `String`       | Product's unique identification stored on the database                      |
+| `term`           | `String`       | Search term or product slug                       |
 | `categories`       | `Array(String)`| List of categories which the product belongs to                             |
 
 
@@ -79,4 +78,8 @@ categories = ['eletronics','eletronics-computers']
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
 
 ## Tests
-:construction: :construction: :construction:
+Run the tests with this command.
+
+```
+cd react && yarn test
+```

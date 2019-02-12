@@ -80,10 +80,10 @@ Below, we describe the tokens, their explanation and the component where it is l
 
 | Token name         | Component          | Description                                            |
 | ------------------ | ----------         |------------------------------------------------------- |
-| `container`        | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)           | The main container of breadcrumb                         |
-| `link`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Minicart icon label                                    |
-| `arrow`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Arrow container         |
-| `term`          | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Term label                                        |
+| `container`        | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)           | The main container of breadcrumb                         |
+| `link`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Minicart icon label                                    |
+| `arrow`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Arrow container         |
+| `term`          | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Term label                                        |
 
 To override the default CSS, you need to import `styles` on your manifest:
 

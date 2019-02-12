@@ -72,7 +72,28 @@ categories = ['eletronics','eletronics-computers']
 ```
 
 ### Styles API
-:construction: :construction: :construction:
+This app has CSS customization through `CSS Modules`. CSS Modules is a CSS file in which all class names and animation names are scoped locally by default. You can read more about CSS Modules [here](https://github.com/css-modules/css-modules) .
+
+We use it `css-loader` to generate a CSS token on a HTML element. For example, the builder generate a CSS token based on app vendor, name and major version. Like `container` token declared in breadcrumb, generate the classname `vtex.breadcrumb-1-x-container`.
+
+Below, we describe the tokens, their explanation and the component where it is located.
+
+| Token name         | Component          | Description                                            |
+| ------------------ | ----------         |------------------------------------------------------- |
+| `container`        | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)           | The main container of breadcrumb                         |
+| `link`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Minicart icon label                                    |
+| `arrow`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Arrow container         |
+| `term`          | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.js)            | Term label                                        |
+
+To override the default CSS, you need to import `styles` on your manifest:
+
+```json
+  "builders": {
+    "styles": "1.x"
+  }
+```
+
+Also, create a `vtex.breadcrumb.css` file in `styles/css` for your handlers customization.
 
 ## Troubleshooting
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.

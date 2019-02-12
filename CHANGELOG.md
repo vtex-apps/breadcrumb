@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.4] - 2019-02-12
+### Changed
+- Update the `README.md` with the docs.
+
 ## [1.3.3] - 2019-02-08
 ### Changed
 - Use Icons from `vtex.dreamstore-icons`.

@@ -36,8 +36,6 @@ To use this app, you need to add it in your `dependencies` in the `manifest.json
 Then, add the `breadcrumb` block into our app theme, as we do in our [Product Details app](https://github.com/vtex-apps/product-details/blob/master/store/blocks.json). 
 
 ### Blocks API
-:construction: :construction: :construction:
-
 This app has an interface that describes what rules must be implemented by a block when you want to use the breadcrumb app.
 
 ```json

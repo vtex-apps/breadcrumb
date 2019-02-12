@@ -81,7 +81,7 @@ Below, we describe the tokens, their explanation and the component where it is l
 | Token name         | Component          | Description                                            |
 | ------------------ | ----------         |------------------------------------------------------- |
 | `container`        | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)           | The main container of breadcrumb                         |
-| `link`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Minicart icon label                                    |
+| `link`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Link container                                    |
 | `arrow`            | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Arrow container         |
 | `term`          | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx)            | Term label                                        |
 
@@ -96,7 +96,7 @@ To override the default CSS, you need to import `styles` on your manifest:
 Also, create a `vtex.breadcrumb.css` file in `styles/css` for your handlers customization.
 
 ## Troubleshooting
-You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
+You can check if others are passing through similar issues [here](https://github.com/vtex-apps/breadcrumb/issues). Also feel free to [open issues](https://github.com/vtex-apps/breadcrumb/issues/new) or contribute with pull requests.
 
 ## Tests
 To execute our tests go to `react/` folder and run `yarn test`

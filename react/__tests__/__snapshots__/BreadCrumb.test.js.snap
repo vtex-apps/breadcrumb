@@ -1,0 +1,319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BreadCrumb /> component should match the snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container dn db-ns pv3"
+      >
+        <a>
+          <div
+            size="26"
+          >
+            Icon Home
+          </div>
+        </a>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+          <a>
+            eletrônicos
+          </a>
+        </span>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+          <a>
+            smartphones
+          </a>
+        </span>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+        </span>
+        <span
+          class="term ph2 c-on-base"
+        >
+          test
+        </span>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container dn db-ns pv3"
+    >
+      <a>
+        <div
+          size="26"
+        >
+          Icon Home
+        </div>
+      </a>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+        <a>
+          eletrônicos
+        </a>
+      </span>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+        <a>
+          smartphones
+        </a>
+      </span>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+      </span>
+      <span
+        class="term ph2 c-on-base"
+      >
+        test
+      </span>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<BreadCrumb /> component should render links 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container dn db-ns pv3"
+      >
+        <a>
+          <div
+            size="26"
+          >
+            Icon Home
+          </div>
+        </a>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+          <a>
+            eletrônicos
+          </a>
+        </span>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+          <a>
+            smartphones
+          </a>
+        </span>
+        <span
+          class="arrow ph2 c-muted-2"
+        >
+          <div
+            orientation="right"
+            size="8"
+          >
+            Icon Caret
+          </div>
+        </span>
+        <span
+          class="term ph2 c-on-base"
+        >
+          test
+        </span>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container dn db-ns pv3"
+    >
+      <a>
+        <div
+          size="26"
+        >
+          Icon Home
+        </div>
+      </a>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+        <a>
+          eletrônicos
+        </a>
+      </span>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+        <a>
+          smartphones
+        </a>
+      </span>
+      <span
+        class="arrow ph2 c-muted-2"
+      >
+        <div
+          orientation="right"
+          size="8"
+        >
+          Icon Caret
+        </div>
+      </span>
+      <span
+        class="term ph2 c-on-base"
+      >
+        test
+      </span>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

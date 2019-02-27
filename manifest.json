@@ -18,6 +18,6 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.dreamstore-icons": "0.x"
+    "vtex.store-icons": "0.x"
   }
 }

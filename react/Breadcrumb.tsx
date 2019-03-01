@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component, Fragment, ReactNode } from 'react'
 import { Link } from 'vtex.render-runtime'
 import unorm from 'unorm'
-import { IconHome, IconCaret } from 'vtex.dreamstore-icons'
+import { IconHome, IconCaret } from 'vtex.store-icons'
 
 import breadcrumb from './breadcrumb.css'
 

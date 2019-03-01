@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "breadcrumb",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "title": "VTEX Breadcrumb",
   "description": "Breadcrumb Component",
   "defaultLocale": "pt-BR",
@@ -18,6 +18,6 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.dreamstore-icons": "0.x"
+    "vtex.store-icons": "0.x"
   }
 }

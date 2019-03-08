@@ -7,7 +7,6 @@ import Breadcrumb from '../Breadcrumb'
 describe('<BreadCrumb /> component', () => {
   const renderComponent = customProps => {
     const props = {
-      term: 'test',
       categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'],
       ...customProps,
     }
@@ -15,10 +14,27 @@ describe('<BreadCrumb /> component', () => {
   }
 
   it('should be rendered', () => {
-    expect(renderComponent()).toBeDefined()
+    expect(renderComponent().asFragment().firstChild).toHaveClass('container')
   })
 
   it('should match the snapshot', () => {
-    expect(renderComponent()).toMatchSnapshot()
+    expect(renderComponent({ term: 'term' }).asFragment()).toMatchSnapshot()
+  })
+
+  it('should render links', () => {
+    const { queryByText, asFragment } = renderComponent()
+    expect(asFragment().querySelectorAll('a')).toHaveLength(3)
+    expect(queryByText('eletrônicos')).toBeDefined()
+    expect(queryByText('smartphones')).toBeDefined()
+  })
+
+  it('should render term', () => {
+    const { rerender, queryByText } = renderComponent({
+      term: 'term',
+    })
+    expect(queryByText('term')).toBeDefined()
+
+    rerender(<Breadcrumb />)
+    expect(queryByText('term')).toBeNull()
   })
 })

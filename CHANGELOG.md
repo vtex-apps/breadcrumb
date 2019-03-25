@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Make `Breadcrumb` receive categories with shape `{name, link}` instead of link strings only.
+
 ### Added
 
 - Add tests.

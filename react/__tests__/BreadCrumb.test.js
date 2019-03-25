@@ -7,7 +7,16 @@ import Breadcrumb from '../Breadcrumb'
 describe('<BreadCrumb /> component', () => {
   const renderComponent = customProps => {
     const props = {
-      categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'],
+      categories: [
+        {
+          link: '/Eletrônicos/',
+          name: 'Eletrônicos',
+        },
+        {
+          link: '/Eletrônicos/Smartphones/',
+          name: 'Smartphones :)',
+        },
+      ],
       ...customProps,
     }
     return render(<Breadcrumb {...props} />)

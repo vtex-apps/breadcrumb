@@ -26,7 +26,7 @@ exports[`<BreadCrumb /> component should match the snapshot 1`] = `
       <a
         class="link"
       >
-        eletrônicos
+        Eletrônicos
       </a>
     </span>
     <span
@@ -41,7 +41,7 @@ exports[`<BreadCrumb /> component should match the snapshot 1`] = `
       <a
         class="link"
       >
-        smartphones
+        Smartphones :)
       </a>
     </span>
     <span

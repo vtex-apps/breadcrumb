@@ -29,12 +29,15 @@ const makeLink = (string: string) =>
  * Breadcrumb Component.
  */
 const Breadcrumb = ({ term, categories }: Props) => {
-  const categoriesList = useMemo((): Array<Category> => {
+
+  const getCategoriesList = (categories:Array<string>) : Array<Category> => {
     const categoriesSorted = categories
       .slice()
       .sort((a, b) => a.length - b.length)
     return categoriesSorted.map(category => {
-      const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
+      const categoryStripped = category
+        .replace(/^\//, '')
+        .replace(/\/$/, '')
       const currentCategories = categoryStripped.split('/')
       const [categoryKey] = currentCategories.reverse()
       const linkCompletion = currentCategories.length === 1 ? '/d' : ''
@@ -44,7 +47,8 @@ const Breadcrumb = ({ term, categories }: Props) => {
         link: link,
       }
     })
-  }, [categories])
+  }
+  const categoriesList = useMemo(() => getCategoriesList(categories), [categories])
 
   return !categories.length ? null : (
     <div className={`${styles.container} dn db-ns pv3`}>

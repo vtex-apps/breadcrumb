@@ -1,98 +1,83 @@
-import PropTypes from 'prop-types'
-import React, { Component, Fragment, ReactNode } from 'react'
+import React, { Fragment, useMemo } from 'react'
 import { Link } from 'vtex.render-runtime'
 import unorm from 'unorm'
 import { IconHome, IconCaret } from 'vtex.store-icons'
 
-import breadcrumb from './breadcrumb.css'
+import styles from './breadcrumb.css'
 
-const LINK_CLASS_NAME = `${breadcrumb.link} dib pv1 link ph2 c-muted-2 hover-c-link`
+const LINK_CLASS_NAME = `${styles.link} dib pv1 link ph2 c-muted-2 hover-c-link`
 
-interface DefaultProps {
+interface Category {
+  name: string
+  link: string
+}
+interface Props {
+  term?: string
+  /** Shape [ '/Department' ,'/Department/Category'] */
   categories: Array<string>
 }
-  
-interface Props extends DefaultProps {
-  term?: string
-}
 
-type Category = {
-  name: string
-  value: string
-}
+const makeLink = (string: string) =>
+  unorm
+    .nfd(string)
+    .toLowerCase()
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .replace(/[-\s]+/g, '-')
 
 /**
  * Breadcrumb Component.
  */
-class Breadcrumb extends Component<Props> {
-  public static readonly defaultProps = {
-    categories: [],
-  }
+const Breadcrumb = ({ term, categories }: Props) => {
 
-  public static readonly propTypes = {
-    /** Search term or product slug. */
-    term: PropTypes.string,
-    /** Product's categories. */
-    categories: PropTypes.arrayOf(PropTypes.string),
-  }
-
-  private get categoriesList(): Array<Category> {
-    const { categories } = this.props
+  const getCategoriesList = (categories:Array<string>) : Array<Category> => {
     const categoriesSorted = categories
       .slice()
       .sort((a, b) => a.length - b.length)
     return categoriesSorted.map(category => {
-      let categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
+      const categoryStripped = category
+        .replace(/^\//, '')
+        .replace(/\/$/, '')
       const currentCategories = categoryStripped.split('/')
       const [categoryKey] = currentCategories.reverse()
-      categoryStripped = unorm
-        .nfd(categoryStripped)
-        .toLowerCase()
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim()
-        .replace(/[-\s]+/g, '-')
-      categoryStripped += currentCategories.length === 1 ? '/d' : ''
+      const linkCompletion = currentCategories.length === 1 ? '/d' : ''
+      const link = makeLink(categoryStripped) + linkCompletion
       return {
-        name: categoryKey.toLowerCase(),
-        value: categoryStripped,
+        name: categoryKey,
+        link: link,
       }
     })
   }
+  const categoriesList = useMemo(() => getCategoriesList(categories), [categories])
 
-  public render(): ReactNode {
-    const { term, categories } = this.props
+  return !categories.length ? null : (
+    <div className={`${styles.container} dn db-ns pv3`}>
+      <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
+        <IconHome size={26} />
+      </Link>
+      {categoriesList.map(({ name, link }, i) => (
+        <span key={`category-${i}`} className={`${styles.arrow} ph2 c-muted-2`}>
+          <IconCaret orientation="right" size={8} />
+          <Link className={LINK_CLASS_NAME} to={`/${link}`}>
+            {name}
+          </Link>
+        </span>
+      ))}
 
-    if (!categories.length) {
-      return null
-    }
-
-    return (
-      <div className={`${breadcrumb.container} dn db-ns pv3`}>
-        <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
-          <IconHome size={26}/>
-        </Link>
-        {this.categoriesList.map(({ name, value }, i) => (
-          <span key={`category-${i}`} className={`${breadcrumb.arrow} ph2 c-muted-2`}>
-            <IconCaret orientation="right" size={8}/>
-            <Link className={LINK_CLASS_NAME} to={`/${value}`}>
-              {name}
-            </Link>
+      {term && (
+        <Fragment>
+          <span className={`${styles.arrow} ph2 c-muted-2`}>
+            <IconCaret orientation="right" size={8} />
           </span>
-        ))}
+          <span className={`${styles.term} ph2 c-on-base`}>{term}</span>
+        </Fragment>
+      )}
+    </div>
+  )
+}
 
-        {term && (
-          <Fragment>
-            <span className={`${breadcrumb.arrow} ph2 c-muted-2`}>
-              <IconCaret orientation="right" size={8}/>
-            </span>
-            <span className={`${breadcrumb.term} ph2 c-on-base`}>
-              {term}
-            </span>
-          </Fragment>
-        )}
-      </div>
-    )
-  }
+Breadcrumb.defaultProps = {
+  categories: [],
 }
 
 export default Breadcrumb

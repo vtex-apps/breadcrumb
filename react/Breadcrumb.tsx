@@ -13,23 +13,17 @@ interface Category {
 }
 interface Props {
   term?: string
+  /** Shape [ '/Department' ,'/Department/Category'] */
   categories: Array<string>
 }
 
-/**
- * Return a new string with the first letter as capital
- * @param string:  String to be capitalized
- */
-const capitalize = (string: string): string =>
-  string.charAt(0).toUpperCase() + string.slice(1).toLocaleLowerCase()
-
-/**
- * Returns a category name by replacing the hypens with spaces and capitalizing
- * the result
- * @param categoryKey
- */
-const getCategoryName = (categoryKey: string): string =>
-  capitalize(categoryKey.replace(/[-]/g, ' '))
+const makeLink = (string: string) =>
+  unorm
+    .nfd(string)
+    .toLowerCase()
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .replace(/[-\s]+/g, '-')
 
 /**
  * Breadcrumb Component.
@@ -40,19 +34,14 @@ const Breadcrumb = ({ term, categories }: Props) => {
       .slice()
       .sort((a, b) => a.length - b.length)
     return categoriesSorted.map(category => {
-      let categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
+      const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
       const currentCategories = categoryStripped.split('/')
       const [categoryKey] = currentCategories.reverse()
-      categoryStripped = unorm
-        .nfd(categoryStripped)
-        .toLowerCase()
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim()
-        .replace(/[-\s]+/g, '-')
-      categoryStripped += currentCategories.length === 1 ? '/d' : ''
+      const linkCompletion = currentCategories.length === 1 ? '/d' : ''
+      const link = makeLink(categoryStripped) + linkCompletion
       return {
-        name: getCategoryName(categoryKey),
-        link: categoryStripped,
+        name: categoryKey,
+        link: link,
       }
     })
   }, [categories])

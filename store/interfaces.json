@@ -1,5 +1,8 @@
 {
   "breadcrumb": {
     "component": "Breadcrumb"
+  },
+  "product-breadcrumb": {
+    "component": "BreadcrumbProduct"
   }
 }

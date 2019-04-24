@@ -18,6 +18,7 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store-icons": "0.x"
+    "vtex.store-icons": "0.x",
+    "vtex.product-context": "0.x"
   }
 }

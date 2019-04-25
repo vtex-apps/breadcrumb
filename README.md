@@ -46,6 +46,9 @@ This app has an interface that describes what rules must be implemented by a blo
 {
   "breadcrumb": {
     "component": "Breadcrumb"
+  },
+  "product-breadcrumb": {
+    "component": "BreadcrumbProduct"
   }
 }
 ```

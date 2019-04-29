@@ -2,7 +2,7 @@
   "breadcrumb": {
     "component": "Breadcrumb"
   },
-  "product-breadcrumb": {
+  "breadcrumb.product": {
     "component": "BreadcrumbProduct"
   }
 }

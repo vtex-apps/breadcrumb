@@ -22,6 +22,7 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
     - [Configuration](#configuration)
   - [Styles API](#styles-api)
 - [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 - [Tests](#tests)
 
 ## Usage
@@ -101,6 +102,10 @@ Also, create a `vtex.breadcrumb.css` file in `styles/css` for your handlers cust
 ## Troubleshooting
 
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/breadcrumb/issues). Also feel free to [open issues](https://github.com/vtex-apps/breadcrumb/issues/new) or contribute with pull requests.
+
+## Contributing
+
+Check it out [how to contribute](https://github.com/vtex-apps/awesome-io#contributing) with this project. 
 
 ## Tests
 

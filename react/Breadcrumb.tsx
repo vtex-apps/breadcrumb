@@ -50,9 +50,10 @@ const getCategoriesList = (categories: string[]) : Category[] => {
  * Breadcrumb Component.
  */
 const Breadcrumb = ({ term, categories, categoryTree }: Props) => {
-  const categoriesList = categoryTree 
-    ? categoryTree
-    : useMemo(() => getCategoriesList(categories), [categories])
+  const categoriesList = useMemo(
+    () => categoryTree || getCategoriesList(categories), 
+    [categories, categoryTree]
+  )
 
   return !categoriesList.length
     ? null 

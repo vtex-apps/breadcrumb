@@ -49,7 +49,7 @@ const getCategoriesList = (categories: string[]) : Category[] => {
 /**
  * Breadcrumb Component.
  */
-const Breadcrumb = ({ term, categories, categoryTree }: Props) => {
+const Breadcrumb: React.FunctionComponent<Props> = ({ term, categories, categoryTree }) => {
   const categoriesList = useMemo(
     () => categoryTree || getCategoriesList(categories), 
     [categories, categoryTree]

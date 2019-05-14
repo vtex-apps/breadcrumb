@@ -12,11 +12,11 @@ interface Category {
   href: string
 }
 
-interface Props {
+export interface Props {
   term?: string
   /** Shape [ '/Department' ,'/Department/Category'] */
   categories: string[]
-  categoryTree: Category[]
+  categoryTree?: Category[]
 }
 
 const makeLink = (str: string) =>

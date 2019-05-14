@@ -1,21 +1,17 @@
-/* eslint-env jest */
 import React from 'react'
-import { render } from 'react-testing-library'
+import { render } from '@vtex/test-tools/react'
 
-import Breadcrumb from '../Breadcrumb'
+import Breadcrumb, { Props } from '../Breadcrumb'
 
 describe('<BreadCrumb /> component', () => {
-  const renderComponent = customProps => {
+  const defaultCategories = ['/Eletrônicos/Smartphones/', '/Eletrônicos/']
+  const renderComponent = (customProps?: Partial<Props>) => {
     const props = {
-      categories: ['/Eletrônicos/Smartphones/', '/Eletrônicos/'],
+      categories: defaultCategories,
       ...customProps,
     }
     return render(<Breadcrumb {...props} />)
   }
-
-  it('should be rendered', () => {
-    expect(renderComponent().asFragment().firstChild).toHaveClass('container')
-  })
 
   it('should match the snapshot', () => {
     expect(renderComponent({ term: 'term' }).asFragment()).toMatchSnapshot()
@@ -34,7 +30,8 @@ describe('<BreadCrumb /> component', () => {
     })
     expect(queryByText('term')).toBeDefined()
 
-    rerender(<Breadcrumb />)
+    rerender(<Breadcrumb categories={defaultCategories} />)
+
     expect(queryByText('term')).toBeNull()
   })
 })

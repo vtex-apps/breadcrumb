@@ -7,7 +7,7 @@ import styles from './breadcrumb.css'
 
 const LINK_CLASS_NAME = `${styles.link} dib pv1 link ph2 c-muted-2 hover-c-link`
 
-interface Category {
+interface NavigationItem {
   name: string
   href: string
 }
@@ -16,7 +16,8 @@ export interface Props {
   term?: string
   /** Shape [ '/Department' ,'/Department/Category'] */
   categories: string[]
-  categoryTree?: Category[]
+  categoryTree?: NavigationItem[],
+  breadcrumb?: NavigationItem[], 
 }
 
 const makeLink = (str: string) =>
@@ -27,7 +28,7 @@ const makeLink = (str: string) =>
     .trim()
     .replace(/[-\s]+/g, '-')
 
-const getCategoriesList = (categories: string[]) : Category[] => {
+const getCategoriesList = (categories: string[]) : NavigationItem[] => {
   const categoriesSorted = categories
     .slice()
     .sort((a, b) => a.length - b.length)
@@ -49,21 +50,21 @@ const getCategoriesList = (categories: string[]) : Category[] => {
 /**
  * Breadcrumb Component.
  */
-const Breadcrumb: React.FunctionComponent<Props> = ({ term, categories, categoryTree }) => {
-  const categoriesList = useMemo(
-    () => categoryTree || getCategoriesList(categories), 
-    [categories, categoryTree]
+const Breadcrumb: React.FunctionComponent<Props> = ({ term, categories, categoryTree, breadcrumb }) => {
+  const navigationList = useMemo(
+    () => breadcrumb || categoryTree || getCategoriesList(categories), 
+    [breadcrumb, categories, categoryTree]
   )
-
-  return !categoriesList.length
+  
+  return !navigationList.length
     ? null 
     : (
       <div className={`${styles.container} dn db-ns pv3`}>
         <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
           <IconHome size={26} />
         </Link>
-        {categoriesList.map(({ name, href }, i) => (
-          <span key={`category-${i}`} className={`${styles.arrow} ph2 c-muted-2`}>
+        {navigationList.map(({ name, href }, i) => (
+          <span key={`navigation-item-${i}`} className={`${styles.arrow} ph2 c-muted-2`}>
             <IconCaret orientation="right" size={8} />
             <Link className={LINK_CLASS_NAME} to={href}>
               {name}

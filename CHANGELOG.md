@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.4.1] - 2019-05-20
+### Changed
+
+- Create prop `breadcrumb`, used for the productSearch server generated breadcrumb navigation routes.
+
 ## [1.4.0] - 2019-05-07
 ### Added
 - Category tree prop for displaying breadcrumb along with correct link

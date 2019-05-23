@@ -6,7 +6,7 @@ import Breadcrumb from './Breadcrumb';
 
 interface Props {
   term?: string | undefined
-  categories: Array<string> | undefined
+  categories: string[] | undefined
 }
 
 const BreadcrumbProduct = (props: Props) => {
@@ -21,7 +21,7 @@ const BreadcrumbProduct = (props: Props) => {
   return (
     <Breadcrumb 
       term={term} 
-      categories={categories} 
+      categories={categories || []} 
     />
   )
 }

@@ -7,17 +7,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- When on flexible PDP, get categoryTree correctly.
+
 ## [1.5.0] - 2019-05-27
+
 ### Added
+
 - Added support for ProductContext, which allows adding the breadcrumb directly inside the product page.
 
 ## [1.4.1] - 2019-05-20
+
 ### Changed
 
 - Create prop `breadcrumb`, used for the productSearch server generated breadcrumb navigation routes.
 
 ## [1.4.0] - 2019-05-07
+
 ### Added
+
 - Category tree prop for displaying breadcrumb along with correct link
 
 ## [1.3.6] - 2019-03-27

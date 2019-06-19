@@ -65,10 +65,12 @@ const Breadcrumb: React.FunctionComponent<Props> = ({
     const defProps: Props = {
       term: path(['product', 'productName'], productContext),
       categories: path(['categories'], productContext) || [],
+      categoryTree: path(['product', 'categoryTree'], productContext) || [],
     }
 
     term = defProps.term
     categories = defProps.categories
+    categoryTree = defProps.categoryTree
   }
 
   const navigationList = useMemo(

@@ -1,9 +1,9 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment, useMemo, useContext } from 'react'
 import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { IconCaret, IconHome } from 'vtex.store-icons'
 import { ProductContext } from 'vtex.product-context'
-import { isEmpty, path } from 'ramda'
+import { path, pathOr } from 'ramda'
 
 import styles from './breadcrumb.css'
 
@@ -47,32 +47,33 @@ const getCategoriesList = (categories: string[]): NavigationItem[] => {
   })
 }
 
+const ProductContextWrapper = (
+  Component: React.ComponentType<Props>
+): React.FC<Props> => props => {
+  const { product } = useContext(ProductContext) || { product: null }
+  const term = props.term || path(['productName'], product)
+  const categoryTree = props.categoryTree || path(['categoryTree'], product)
+  const categories = props.categories || pathOr([], ['categories'], product)
+
+  return (
+    <Component
+      term={term}
+      categories={categories}
+      categoryTree={categoryTree}
+      breadcrumb={props.breadcrumb}
+    />
+  )
+}
+
 /**
  * Breadcrumb Component.
  */
-const Breadcrumb: React.FunctionComponent<Props> = ({
+const Breadcrumb: React.FC<Props> = ({
   term,
   categories,
   categoryTree,
   breadcrumb,
 }) => {
-  const productContext = React.useContext(ProductContext)
-
-  /** Gets breadcrumb from ProductContext if available.
-   * This is supposed to be a temporary fix; a better architecture for
-   * these cases should be investigated. */
-  if (productContext && !isEmpty(productContext)) {
-    const defProps: Props = {
-      term: path(['product', 'productName'], productContext),
-      categories: path(['categories'], productContext) || [],
-      categoryTree: path(['product', 'categoryTree'], productContext) || [],
-    }
-
-    term = defProps.term
-    categories = defProps.categories
-    categoryTree = defProps.categoryTree
-  }
-
   const navigationList = useMemo(
     () => breadcrumb || categoryTree || getCategoriesList(categories),
     [breadcrumb, categories, categoryTree]
@@ -111,4 +112,4 @@ Breadcrumb.defaultProps = {
   categories: [],
 }
 
-export default Breadcrumb
+export default ProductContextWrapper(Breadcrumb)

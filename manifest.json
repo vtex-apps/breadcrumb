@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "breadcrumb",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "title": "VTEX Breadcrumb",
   "description": "Breadcrumb Component",
   "defaultLocale": "pt-BR",

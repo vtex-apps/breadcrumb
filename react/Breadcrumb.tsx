@@ -47,7 +47,7 @@ const getCategoriesList = (categories: string[]): NavigationItem[] => {
   })
 }
 
-const ProductContextWrapper = (
+const withProductContextWrapper = (
   Component: React.ComponentType<Props>
 ): React.FC<Props> => props => {
   const { product } = useContext(ProductContext) || { product: null }
@@ -112,4 +112,4 @@ Breadcrumb.defaultProps = {
   categories: [],
 }
 
-export default ProductContextWrapper(Breadcrumb)
+export default withProductContextWrapper(Breadcrumb)

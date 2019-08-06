@@ -80,7 +80,7 @@ const Breadcrumb: React.FC<Props> = ({
   )
 
   return !navigationList.length ? null : (
-    <div className={`${styles.container} dn db-ns pv3`}>
+    <div className={`${styles.container} db pv3`}>
       <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
         <IconHome size={26} />
       </Link>

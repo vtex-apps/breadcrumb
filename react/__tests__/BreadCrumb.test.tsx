@@ -34,4 +34,16 @@ describe('<BreadCrumb /> component', () => {
 
     expect(queryByText('term')).toBeNull()
   })
+
+  it('should have dn db-ns if showOnMobile is false', () => {
+    const { getByTestId } = renderComponent({showOnMobile: false,})
+    const container = getByTestId('breadcrumb')
+    expect(container.className).toContain('dn db-ns')
+  })
+
+  it('should not have dn if showOnMobile is true', () => {
+    const { getByTestId } = renderComponent({showOnMobile: true,})
+    const container = getByTestId('breadcrumb')
+    expect(container.className).not.toContain('dn')
+  })
 })

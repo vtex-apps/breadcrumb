@@ -20,6 +20,7 @@ export interface Props {
   categories: string[]
   categoryTree?: NavigationItem[]
   breadcrumb?: NavigationItem[]
+  showOnMobile?: Boolean
 }
 
 const makeLink = (str: string) =>
@@ -61,6 +62,7 @@ const withProductContextWrapper = (
       categories={categories}
       categoryTree={categoryTree}
       breadcrumb={props.breadcrumb}
+      showOnMobile={props.showOnMobile}
     />
   )
 }
@@ -73,14 +75,17 @@ const Breadcrumb: React.FC<Props> = ({
   categories,
   categoryTree,
   breadcrumb,
+  showOnMobile,
 }) => {
   const navigationList = useMemo(
     () => breadcrumb || categoryTree || getCategoriesList(categories),
     [breadcrumb, categories, categoryTree]
   )
 
+  const breadcrumbStyle = showOnMobile ? '' : 'dn db-ns'
+
   return !navigationList.length ? null : (
-    <div className={`${styles.container} pv3`}>
+    <div data-testid="breadcrumb" className={`${styles.container} ${breadcrumbStyle} pv3`}>
       <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
         <IconHome size={26} />
       </Link>

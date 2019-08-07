@@ -3,7 +3,8 @@
 exports[`<BreadCrumb /> component should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="container pv3"
+    class="container dn db-ns pv3"
+    data-testid="breadcrumb"
   >
     <a
       class="link"

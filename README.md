@@ -59,6 +59,7 @@ Through the Storefront, you can change the behavior and interface of the breadcr
 | ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `term`       | `String`        | Search term that is used to get to that specific page on the website or product slug that is the unique identification stored on the database |
 | `categories` | `Array(String)` | List of categories which the product belongs to                                                                                               |
+| `showOnMobile`        | `Boolean`       | if breadcrumbs should be displayed on mobile         | `false`              |
 
 :loudspeaker: **Extra information:** The product's categories should appear as an array in one of this two formats:
 

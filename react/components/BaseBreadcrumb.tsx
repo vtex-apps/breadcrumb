@@ -64,7 +64,10 @@ const Breadcrumb: React.FC<Props> = ({
   const breadcrumbStyle = showOnMobile ? '' : 'dn db-ns'
 
   return !navigationList.length ? null : (
-    <div className={`${styles.container} ${breadcrumbStyle} pv3`}>
+    <div
+      data-testid="breadcrumb"
+      className={`${styles.container} ${breadcrumbStyle} pv3`}
+    >
       <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
         <IconHome size={26} />
       </Link>

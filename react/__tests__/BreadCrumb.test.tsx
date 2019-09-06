@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from '@vtex/test-tools/react'
 
-import Breadcrumb, { Props } from '../Breadcrumb'
+import Breadcrumb from '../Breadcrumb'
+import { Props } from '../components/BaseBreadcrumb'
 
 describe('<BreadCrumb /> component', () => {
   const defaultCategories = ['/Eletrônicos/Smartphones/', '/Eletrônicos/']
@@ -36,13 +37,13 @@ describe('<BreadCrumb /> component', () => {
   })
 
   it('should have dn db-ns if showOnMobile is false', () => {
-    const { getByTestId } = renderComponent({showOnMobile: false,})
+    const { getByTestId } = renderComponent({ showOnMobile: false })
     const container = getByTestId('breadcrumb')
     expect(container.className).toContain('dn db-ns')
   })
 
   it('should not have dn if showOnMobile is true', () => {
-    const { getByTestId } = renderComponent({showOnMobile: true,})
+    const { getByTestId } = renderComponent({ showOnMobile: true })
     const container = getByTestId('breadcrumb')
     expect(container.className).not.toContain('dn')
   })

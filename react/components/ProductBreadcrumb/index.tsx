@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import { ProductContext } from 'vtex.product-context'
 import { path, pathOr } from 'ramda'
-import BaseBreadcrumb, { Props } from './components/BaseBreadcrumb'
+import BaseBreadcrumb, { Props, NavigationItem } from '../BaseBreadcrumb'
 
 const withProductContextWrapper = (
   Component: React.ComponentType<Props>
 ): React.FC<Props> => props => {
   const { product } = useContext(ProductContext) || { product: null }
-  const term = props.term || path(['productName'], product)
-  const categoryTree = props.categoryTree || path(['categoryTree'], product)
-  const categories = props.categories || pathOr([], ['categories'], product)
+  const term = path<string>(['productName'], product)
+  const categoryTree = path<NavigationItem[]>(['categoryTree'], product)
+  const categories = pathOr([], ['categories'], product)
 
   return (
     <Component

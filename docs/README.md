@@ -17,13 +17,18 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 ## Table of Contents
 
-- [Usage](#usage)
-  - [Blocks API](#blocks-api)
-    - [Configuration](#configuration)
-  - [Styles API](#styles-api)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Tests](#tests)
+- [VTEX Breadcrumb](#vtex-breadcrumb)
+  - [Description](#description)
+  - [Release schedule](#release-schedule)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+    - [Blocks API](#blocks-api)
+      - [Configuration](#configuration)
+    - [Styles API](#styles-api)
+  - [Troubleshooting](#troubleshooting)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+    - [Travis CI](#travis-ci)
 
 ## Usage
 
@@ -60,6 +65,7 @@ Through the Storefront, you can change the behavior and interface of the breadcr
 | `term`       | `String`        | Search term that is used to get to that specific page on the website or product slug that is the unique identification stored on the database |
 | `categories` | `Array(String)` | List of categories which the product belongs to                                                                                               |
 | `showOnMobile`        | `Boolean`       | if breadcrumbs should be displayed on mobile         | `false`              |
+| `hideProductName` | `Boolean` | **(Available only on the `breadcrumb.product` block) Hides the product name from the breadcrumb | `false` |
 
 :loudspeaker: **Extra information:** The product's categories should appear as an array in one of this two formats:
 

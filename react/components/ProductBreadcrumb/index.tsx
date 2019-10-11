@@ -5,9 +5,15 @@ import BaseBreadcrumb, { Props, NavigationItem } from '../BaseBreadcrumb'
 
 const withProductContextWrapper = (
   Component: React.ComponentType<Props>
-): React.FC<Props> => props => {
+): React.FC<Props & { hideProductName: boolean }> => ({
+  hideProductName,
+  breadcrumb,
+  showOnMobile,
+}) => {
   const { product } = useContext(ProductContext) || { product: null }
-  const term = path<string>(['productName'], product)
+  const term = hideProductName
+    ? undefined
+    : path<string>(['productName'], product)
   const categoryTree = path<NavigationItem[]>(['categoryTree'], product)
   const categories = pathOr([], ['categories'], product)
 
@@ -16,8 +22,8 @@ const withProductContextWrapper = (
       term={term}
       categories={categories}
       categoryTree={categoryTree}
-      breadcrumb={props.breadcrumb}
-      showOnMobile={props.showOnMobile}
+      breadcrumb={breadcrumb}
+      showOnMobile={showOnMobile}
     />
   )
 }

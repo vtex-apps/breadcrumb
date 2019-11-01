@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment, useMemo, ComponentType } from 'react'
 import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { IconCaret, IconHome } from 'vtex.store-icons'
@@ -18,7 +18,9 @@ export interface Props {
   categories: string[]
   categoryTree?: NavigationItem[]
   breadcrumb?: NavigationItem[]
-  showOnMobile?: boolean
+  showOnMobile?: boolean,
+  iconHome?: ComponentType
+  iconArrow?: ComponentType
 }
 
 const makeLink = (str: string) =>
@@ -55,6 +57,8 @@ const Breadcrumb: React.FC<Props> = ({
   categoryTree,
   breadcrumb,
   showOnMobile,
+  iconArrow,
+  iconHome
 }) => {
   const navigationList = useMemo(
     () => breadcrumb || categoryTree || getCategoriesList(categories),
@@ -69,14 +73,14 @@ const Breadcrumb: React.FC<Props> = ({
       className={`${styles.container} ${breadcrumbStyle} pv3`}
     >
       <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
-        <IconHome size={26} />
+        {iconHome ? iconHome : <IconHome size={26} />}
       </Link>
       {navigationList.map(({ name, href }, i) => (
         <span
           key={`navigation-item-${i}`}
           className={`${styles.arrow} ph2 c-muted-2`}
         >
-          <IconCaret orientation="right" size={8} />
+          {iconArrow ? iconArrow : <IconCaret orientation="right" size={8} />}
           <Link className={LINK_CLASS_NAME} to={href}>
             {name}
           </Link>
@@ -86,7 +90,7 @@ const Breadcrumb: React.FC<Props> = ({
       {term && (
         <Fragment>
           <span className={`${styles.arrow} ph2 c-muted-2`}>
-            <IconCaret orientation="right" size={8} />
+            {iconArrow ? iconArrow : <IconCaret orientation="right" size={8} />}
           </span>
           <span className={`${styles.term} ph2 c-on-base`}>{term}</span>
         </Fragment>

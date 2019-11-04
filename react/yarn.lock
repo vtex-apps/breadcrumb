@@ -5182,6 +5182,10 @@ verror@1.10.0:
   version "0.4.1"
   resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.css-handles@0.4.1/public/@types/vtex.css-handles#16fe9485e8e7183b94f28496ed8cdd741c83f227"
 
+"vtex.device-detector@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.device-detector@0.2.3/public/@types/vtex.device-detector":
+  version "0.2.3"
+  resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.device-detector@0.2.3/public/@types/vtex.device-detector#66c85d30306f6d7694aa04aabd10882afc38c08f"
+
 "vtex.render-runtime@http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.76.0/public/@types/vtex.render-runtime":
   version "8.76.0"
   resolved "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.76.0/public/@types/vtex.render-runtime#c9b4c81a4c84d7998c6f925dfc11ad1a21585326"

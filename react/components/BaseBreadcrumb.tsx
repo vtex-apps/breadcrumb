@@ -1,11 +1,17 @@
 import React, { Fragment, useMemo } from 'react'
 import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
+import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import { IconCaret, IconHome } from 'vtex.store-icons'
 
-import styles from '../breadcrumb.css'
-
-const LINK_CLASS_NAME = `${styles.link} dib pv1 link ph2 c-muted-2 hover-c-link`
+const CSS_HANDLES = [
+  'container',
+  'link',
+  'homeLink',
+  'arrow',
+  'term',
+  'termArrow',
+] as const
 
 export interface NavigationItem {
   name: string
@@ -19,6 +25,8 @@ export interface Props {
   categoryTree?: NavigationItem[]
   breadcrumb?: NavigationItem[]
   showOnMobile?: boolean
+  homeIconSize?: number
+  caretIconSize?: number
 }
 
 const makeLink = (str: string) =>
@@ -55,29 +63,45 @@ const Breadcrumb: React.FC<Props> = ({
   categoryTree,
   breadcrumb,
   showOnMobile,
+  homeIconSize = 26,
+  caretIconSize = 8,
 }) => {
+  const handles = useCssHandles(CSS_HANDLES)
   const navigationList = useMemo(
     () => breadcrumb || categoryTree || getCategoriesList(categories),
     [breadcrumb, categories, categoryTree]
   )
-
-  const breadcrumbStyle = showOnMobile ? '' : 'dn db-ns'
+  const linkBaseClasses = 'dib pv1 link ph2 c-muted-2 hover-c-link'
 
   return !navigationList.length ? null : (
     <div
       data-testid="breadcrumb"
-      className={`${styles.container} ${breadcrumbStyle} pv3`}
+      className={`${handles.container} ${showOnMobile ? '' : 'dn db-l'} pv3`}
     >
-      <Link className={`${LINK_CLASS_NAME} v-mid`} page="store.home">
-        <IconHome size={26} />
+      <Link
+        className={`${handles.link} ${
+          handles.homeLink
+        } ${linkBaseClasses} v-mid`}
+        page="store.home"
+      >
+        <IconHome size={homeIconSize} />
       </Link>
       {navigationList.map(({ name, href }, i) => (
         <span
           key={`navigation-item-${i}`}
-          className={`${styles.arrow} ph2 c-muted-2`}
+          className={`${applyModifiers(
+            handles.arrow,
+            (i + 1).toString()
+          )} ph2 c-muted-2`}
         >
-          <IconCaret orientation="right" size={8} />
-          <Link className={LINK_CLASS_NAME} to={href}>
+          <IconCaret idx={i} orientation="right" size={caretIconSize} />
+          <Link
+            className={`${applyModifiers(
+              handles.link,
+              (i + 1).toString()
+            )} ${linkBaseClasses}`}
+            to={href}
+          >
             {name}
           </Link>
         </span>
@@ -85,10 +109,12 @@ const Breadcrumb: React.FC<Props> = ({
 
       {term && (
         <Fragment>
-          <span className={`${styles.arrow} ph2 c-muted-2`}>
-            <IconCaret orientation="right" size={8} />
+          <span
+            className={`${handles.arrow} ${handles.termArrow} ph2 c-muted-2`}
+          >
+            <IconCaret orientation="right" size={caretIconSize} />
           </span>
-          <span className={`${styles.term} ph2 c-on-base`}>{term}</span>
+          <span className={`${handles.term} ph2 c-on-base`}>{term}</span>
         </Fragment>
       )}
     </div>

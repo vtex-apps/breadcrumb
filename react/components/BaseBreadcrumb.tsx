@@ -3,6 +3,7 @@ import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import { IconCaret, IconHome } from 'vtex.store-icons'
+import { useDevice } from 'vtex.device-detector'
 
 const CSS_HANDLES = [
   'container',
@@ -62,22 +63,25 @@ const Breadcrumb: React.FC<Props> = ({
   categories,
   categoryTree,
   breadcrumb,
-  showOnMobile,
+  showOnMobile = true,
   homeIconSize = 26,
   caretIconSize = 8,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
+  const { isMobile } = useDevice()
   const navigationList = useMemo(
     () => breadcrumb || categoryTree || getCategoriesList(categories),
     [breadcrumb, categories, categoryTree]
   )
   const linkBaseClasses = 'dib pv1 link ph2 c-muted-2 hover-c-link'
+  const shouldBeRendered = (showOnMobile && isMobile) || !isMobile
 
-  return !navigationList.length ? null : (
-    <div
-      data-testid="breadcrumb"
-      className={`${handles.container} ${showOnMobile ? '' : 'dn db-l'} pv3`}
-    >
+  if (!navigationList.length || !shouldBeRendered) {
+    return null
+  }
+
+  return (
+    <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
       <Link
         className={`${handles.link} ${
           handles.homeLink
@@ -94,7 +98,7 @@ const Breadcrumb: React.FC<Props> = ({
             (i + 1).toString()
           )} ph2 c-muted-2`}
         >
-          <IconCaret idx={i} orientation="right" size={caretIconSize} />
+          <IconCaret orientation="right" size={caretIconSize} />
           <Link
             className={`${applyModifiers(
               handles.link,

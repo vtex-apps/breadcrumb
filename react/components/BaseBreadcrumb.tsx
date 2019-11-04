@@ -63,7 +63,7 @@ const Breadcrumb: React.FC<Props> = ({
   categories,
   categoryTree,
   breadcrumb,
-  showOnMobile = true,
+  showOnMobile = false,
   homeIconSize = 26,
   caretIconSize = 8,
 }) => {

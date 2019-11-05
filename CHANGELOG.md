@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.8.0] - 2019-11-05
+### Added
+- New `homeLink` and `termArrow` CSS handles.
+- New `homeIconSize` and `caretIconSize` props.
+- Modifiers to `link` and `arrow` CSS handles.
+
 ## [1.7.1] - 2019-10-28
 ### Chore
-- New release to trigger a rebuild enabling lazy evaluation of breadcrumb entrypoints
+- New release to trigger a rebuild enabling lazy evaluation of breadcrumb entrypoints.
 
 ## [1.7.0] - 2019-09-06
 ### Added

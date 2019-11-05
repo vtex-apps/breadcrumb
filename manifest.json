@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "breadcrumb",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "title": "VTEX Breadcrumb",
   "description": "Breadcrumb Component",
   "defaultLocale": "pt-BR",
@@ -21,7 +21,9 @@
   "dependencies": {
     "vtex.store-icons": "0.x",
     "vtex.product-context": "0.x",
-    "vtex.search-page-context": "0.x"
+    "vtex.search-page-context": "0.x",
+    "vtex.css-handles": "0.x",
+    "vtex.device-detector": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

@@ -55,11 +55,13 @@ This app has an interface that describes what rules must be implemented by a blo
 
 Through the Storefront, you can change the behavior and interface of the breadcrumb. However, you also can make in your theme app, as Dreamstore does.
 
-| Prop name    | Type            | Description                                                                                                                                   |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `term`       | `String`        | Search term that is used to get to that specific page on the website or product slug that is the unique identification stored on the database |
-| `categories` | `Array(String)` | List of categories which the product belongs to                                                                                               |
-| `showOnMobile`        | `Boolean`       | if breadcrumbs should be displayed on mobile         | `false`              |
+| Prop name       | Type            | Description                                                                                                                                   |
+| --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `term`          | `String`        | Search term that is used to get to that specific page on the website or product slug that is the unique identification stored on the database |
+| `categories`    | `Array(String)` | List of categories which the product belongs to                                                                                               |
+| `showOnMobile`  | `Boolean`       | If breadcrumb should be displayed on mobile                                                                                                   | `false` |
+| `homeIconSize`  | `Number`        | Controls the `size` property of IconHome                                                                                                      | `26` |
+| `caretIconSize` | `Number`        | Controls the `size` property of IconCaret                                                                                                     | `8` |
 
 :loudspeaker: **Extra information:** The product's categories should appear as an array in one of this two formats:
 
@@ -83,12 +85,14 @@ We use it `css-loader` to generate a CSS token on a HTML element. For example, t
 
 Below, we describe the tokens, their explanation and the component where it is located.
 
-| Token name  | Component                                                                              | Description                      |
-| ----------- | -------------------------------------------------------------------------------------- | -------------------------------- |
-| `container` | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx) | The main container of breadcrumb |
-| `link`      | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx) | Link container                   |
-| `arrow`     | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx) | Arrow container                  |
-| `term`      | [Breadcrumb](https://github.com/vtex-apps/breadcrumb/blob/master/react/Breadcrumb.tsx) | Term label                       |
+| CSS Handles |
+| ----------- |
+| `container` |
+| `link`      |
+| `arrow`     |
+| `term`      |
+| `homeLink`  |
+| `termArrow` |
 
 To override the default CSS, you need to import `styles` on your manifest:
 
@@ -106,7 +110,7 @@ You can check if others are passing through similar issues [here](https://github
 
 ## Contributing
 
-Check it out [how to contribute](https://github.com/vtex-apps/awesome-io#contributing) with this project. 
+Check it out [how to contribute](https://github.com/vtex-apps/awesome-io#contributing) with this project.
 
 ## Tests
 

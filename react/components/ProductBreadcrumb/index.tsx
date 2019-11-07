@@ -18,6 +18,8 @@ const withProductContextWrapper = (
       categoryTree={categoryTree}
       breadcrumb={props.breadcrumb}
       showOnMobile={props.showOnMobile}
+      homeIconSize={props.homeIconSize}
+      caretIconSize={props.caretIconSize}
     />
   )
 }

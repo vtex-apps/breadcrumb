@@ -5,9 +5,15 @@ import BaseBreadcrumb, { NavigationItem } from '../BaseBreadcrumb'
 
 interface Props {
   showOnMobile?: boolean
+  homeIconSize?: number
+  caretIconSize?: number
 }
 
-const SearchBreadcrumb: FC<Props> = ({ showOnMobile }) => {
+const SearchBreadcrumb: FC<Props> = ({
+  showOnMobile,
+  homeIconSize,
+  caretIconSize,
+}) => {
   const { searchQuery } = useSearchPage()
   const breadcrumb = pathOr<NavigationItem[]>(
     [],
@@ -19,6 +25,8 @@ const SearchBreadcrumb: FC<Props> = ({ showOnMobile }) => {
       breadcrumb={breadcrumb}
       showOnMobile={showOnMobile}
       categories={[]} //unused prop, its OK
+      homeIconSize={homeIconSize}
+      caretIconSize={caretIconSize}
     />
   )
 }

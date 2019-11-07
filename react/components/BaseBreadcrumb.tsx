@@ -25,7 +25,7 @@ export interface Props {
   categories: string[]
   categoryTree?: NavigationItem[]
   breadcrumb?: NavigationItem[]
-  showOnMobile?: boolean,
+  showOnMobile?: boolean
   iconHome?: ComponentType
   iconArrow?: ComponentType
   homeIconSize?: number
@@ -67,7 +67,7 @@ const Breadcrumb: React.FC<Props> = ({
   breadcrumb,
   showOnMobile = false,
   iconArrow,
-  iconHome
+  iconHome,
   homeIconSize = 26,
   caretIconSize = 8,
 }) => {

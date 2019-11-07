@@ -102,7 +102,6 @@ const Breadcrumb: React.FC<Props> = ({
             (i + 1).toString()
           )} ph2 c-muted-2`}
         >
-          <Link className={LINK_CLASS_NAME} to={href}>
           {iconArrow ? iconArrow : <IconCaret orientation="right" size={caretIconSize} />}
           <Link
             className={`${applyModifiers(

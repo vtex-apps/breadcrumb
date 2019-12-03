@@ -44,13 +44,15 @@ categories = ['eletronics', 'eletronics-computers']
 
 ## Customization
 
-| CSS Handle  | Description                      |
-| ----------- | -------------------------------- |
-| `container` | The main container of breadcrumb |
-| `link`      | Link container                   |
-| `arrow`     | Arrow container                  |
-| `homeLink`  | [`IconHome`](https://github.com/vtex-apps/store-icons#icons) container |
-| `termArrow` | [`IconCaret`](https://github.com/vtex-apps/store-icons#icons) container  | 
+| CSS Handles  |
+| ----------- | 
+| `container` | 
+| `link`      | 
+| `arrow`     | 
+| `homeLink`  | 
+| `termArrow` |
+
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
 
 
 

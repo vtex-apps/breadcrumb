@@ -8,7 +8,7 @@ The VTEX BreadCrumb is a navigation scheme that shows a user's browsing history 
 
 ## Configuration
 
-1. Import the breadcrumb's app to your dependencies in the `manifest.json`, for example:
+1. Import the breadcrumb's app to your theme's dependencies in the `manifest.json`, for example:
 
 ```json
   dependencies: {
@@ -44,7 +44,9 @@ categories = ['eletronics', 'eletronics-computers']
 
 ## Customization
 
-| CSS Handles  |
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
+
+| CSS Handles |
 | ----------- | 
 | `container` | 
 | `link`      | 
@@ -52,7 +54,6 @@ categories = ['eletronics', 'eletronics-computers']
 | `homeLink`  | 
 | `termArrow` |
 
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
 
 
 

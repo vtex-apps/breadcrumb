@@ -1,4 +1,4 @@
-📢 Use, [contribute](https://github.com/vtex-apps/breadcrumb/edit/master/docs/README.md) or open issues for this project through [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Use, [contribute](https://github.com/vtex-apps/breadcrumb) or open issues for this project through [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
 # Breadcrumb
 

@@ -2,7 +2,7 @@
 
 # Breadcrumb
 
-The VTEX BreadCrumb is a navigation scheme that shows a user's browsing history up to their current location in your store.
+The VTEX Breadcrumb is a navigation scheme that shows a user's browsing history up to their current location in your store.
 
 ![img2-breadcrumb](https://user-images.githubusercontent.com/52087100/69836587-a4237380-1228-11ea-89c8-0f34cea3a96f.png)
 

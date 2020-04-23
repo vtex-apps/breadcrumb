@@ -105,6 +105,7 @@ const Breadcrumb: React.FC<Props> = ({
               (i + 1).toString()
             )} ${linkBaseClasses}`}
             to={href}
+            waitToPrefetch={1200}
           >
             {name}
           </Link>

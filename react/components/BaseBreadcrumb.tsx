@@ -105,6 +105,7 @@ const Breadcrumb: React.FC<Props> = ({
               (i + 1).toString()
             )} ${linkBaseClasses}`}
             to={href}
+            // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
             waitToPrefetch={1200}
           >
             {name}

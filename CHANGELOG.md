@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-- Use `waitForPrefetch` prop when renderings `<Link />`.
+- Use `waitForPrefetch` prop when rendering `<Link />`.
 
 ## [1.8.4] - 2019-12-16
 

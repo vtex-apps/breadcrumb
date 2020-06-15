@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { pathOr } from 'ramda'
+import { path } from 'ramda'
 import { useSearchPage } from 'vtex.search-page-context/SearchPageContext'
 import BaseBreadcrumb, { NavigationItem } from '../BaseBreadcrumb'
 
@@ -15,11 +15,14 @@ const SearchBreadcrumb: FC<Props> = ({
   caretIconSize,
 }) => {
   const { searchQuery } = useSearchPage()
-  const breadcrumb = pathOr<NavigationItem[]>(
-    [],
-    ['data', 'productSearch', 'breadcrumb'],
-    searchQuery
-  )
+  const breadcrumb =
+    path<NavigationItem[]>(
+      ['data', 'productSearch', 'breadcrumb'],
+      searchQuery
+    ) ||
+    path<NavigationItem[]>(['data', 'facets', 'breadcrumb'], searchQuery) ||
+    []
+
   return (
     <BaseBreadcrumb
       breadcrumb={breadcrumb}

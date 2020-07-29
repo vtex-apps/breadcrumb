@@ -42,12 +42,14 @@ const getCategoriesList = (categories: string[]): NavigationItem[] => {
   const categoriesSorted = categories
     .slice()
     .sort((a, b) => a.length - b.length)
-  return categoriesSorted.map(category => {
+
+  return categoriesSorted.map((category) => {
     const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
     const currentCategories = categoryStripped.split('/')
     const [categoryKey] = currentCategories.reverse()
     const linkCompletion = currentCategories.length === 1 ? '/d' : ''
     const href = `/${makeLink(categoryStripped)}${linkCompletion}`
+
     return {
       href,
       name: categoryKey,
@@ -70,9 +72,10 @@ const Breadcrumb: React.FC<Props> = ({
   const handles = useCssHandles(CSS_HANDLES)
   const { isMobile } = useDevice()
   const navigationList = useMemo(
-    () => breadcrumb || categoryTree || getCategoriesList(categories),
+    () => breadcrumb ?? categoryTree ?? getCategoriesList(categories),
     [breadcrumb, categories, categoryTree]
   )
+
   const linkBaseClasses = 'dib pv1 link ph2 c-muted-2 hover-c-link'
   const shouldBeRendered = (showOnMobile && isMobile) || !isMobile
 
@@ -83,9 +86,7 @@ const Breadcrumb: React.FC<Props> = ({
   return (
     <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
       <Link
-        className={`${handles.link} ${
-          handles.homeLink
-        } ${linkBaseClasses} v-mid`}
+        className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
       >
         <IconHome size={homeIconSize} />

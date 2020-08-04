@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { path } from 'ramda'
 import { useSearchPage } from 'vtex.search-page-context/SearchPageContext'
+import { SearchBreadcrumb as SearchBreadcrumbStructuredData } from 'vtex.structured-data'
+
 import BaseBreadcrumb, { NavigationItem } from '../BaseBreadcrumb'
 
 interface Props {
@@ -15,22 +16,22 @@ const SearchBreadcrumb: FC<Props> = ({
   caretIconSize,
 }) => {
   const { searchQuery } = useSearchPage()
-  const breadcrumb =
-    path<NavigationItem[]>(
-      ['data', 'productSearch', 'breadcrumb'],
-      searchQuery
-    ) ||
-    path<NavigationItem[]>(['data', 'facets', 'breadcrumb'], searchQuery) ||
+  const breadcrumb: NavigationItem[] =
+    searchQuery?.data?.productSearch?.breadcrumb ??
+    searchQuery?.data?.facets?.breadcrumb ??
     []
 
   return (
-    <BaseBreadcrumb
-      breadcrumb={breadcrumb}
-      showOnMobile={showOnMobile}
-      categories={[]} //unused prop, its OK
-      homeIconSize={homeIconSize}
-      caretIconSize={caretIconSize}
-    />
+    <>
+      <SearchBreadcrumbStructuredData breadcrumb={breadcrumb} />
+      <BaseBreadcrumb
+        breadcrumb={breadcrumb}
+        showOnMobile={showOnMobile}
+        categories={[]} // unused prop, its OK
+        homeIconSize={homeIconSize}
+        caretIconSize={caretIconSize}
+      />
+    </>
   )
 }
 

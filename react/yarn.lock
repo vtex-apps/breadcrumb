@@ -4661,9 +4661,9 @@ verror@1.10.0:
   version "0.17.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.17.0/public/@types/vtex.store-icons#1da7ec2f89522d8c5ed3418fec8fbc82817499db"
 
-"vtex.structured-data@https://breadcrumb--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtex.structured-data@0.4.0+build1596051199/public/@types/vtex.structured-data":
-  version "0.4.0"
-  resolved "https://breadcrumb--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtex.structured-data@0.4.0+build1596051199/public/@types/vtex.structured-data#be29e80c122c5b6e8382d64a761911eb3f6740a6"
+"vtex.structured-data@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.5.0/public/@types/vtex.structured-data":
+  version "0.5.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.5.0/public/@types/vtex.structured-data#99587707f0b7d88a3896afc426b2dd792bfb7dd1"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

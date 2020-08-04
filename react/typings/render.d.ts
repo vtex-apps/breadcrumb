@@ -9,7 +9,7 @@ declare module 'vtex.render-runtime' {
 
   export interface RenderContextProps {
     runtime: {
-      navigate: (options: NavigationOptions) => void,
+      navigate: (options: NavigationOptions) => void
     }
   }
 
@@ -20,19 +20,23 @@ declare module 'vtex.render-runtime' {
   export const RenderContextConsumer: ReactElement
   export const canUseDOM: boolean
   export const withRuntimeContext: <TOriginalProps extends {}>(
-    Component: ComponentType<TOriginalProps & RenderContextProps>,
-    ) => ComponentType<TOriginalProps>
-    
-  export const withSession: <TOriginalProps extends {}>(
-    Component: ComponentType<TOriginalProps & RenderContextProps>,
+    Component: ComponentType<TOriginalProps & RenderContextProps>
   ) => ComponentType<TOriginalProps>
-  
-  export const buildCacheLocator = (app: string, type: string, cacheId: string) => string
+
+  export const withSession: <TOriginalProps extends {}>(
+    Component: ComponentType<TOriginalProps & RenderContextProps>
+  ) => ComponentType<TOriginalProps>
+
+  export const buildCacheLocator = (
+    app: string,
+    type: string,
+    cacheId: string
+  ) => string
 
   interface RenderComponent<P = {}, S = {}> extends Component<P, S> {
     getCustomMessages?: (locale: string) => any
     schema: ComponentSchema
-    getSchema?: (a: any, b: any?) => ComponentSchema
+    getSchema?: (a: any, b: ?any) => ComponentSchema
     uiSchema: UISchema
   }
 

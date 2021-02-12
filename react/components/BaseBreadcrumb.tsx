@@ -91,28 +91,38 @@ const Breadcrumb: React.FC<Props> = ({
       >
         <IconHome size={homeIconSize} />
       </Link>
-      {navigationList.map(({ name, href }, i) => (
-        <span
-          key={`navigation-item-${i}`}
-          className={`${applyModifiers(
-            handles.arrow,
-            (i + 1).toString()
-          )} ph2 c-muted-2`}
-        >
-          <IconCaret orientation="right" size={caretIconSize} />
-          <Link
+      {navigationList.map(({ name, href }, i) => {
+        let decodedName = ''
+
+        try {
+          decodedName = decodeURIComponent(name)
+        } catch {
+          decodedName = name
+        }
+
+        return (
+          <span
+            key={`navigation-item-${i}`}
             className={`${applyModifiers(
-              handles.link,
+              handles.arrow,
               (i + 1).toString()
-            )} ${linkBaseClasses}`}
-            to={href}
-            // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
-            waitToPrefetch={1200}
+            )} ph2 c-muted-2`}
           >
-            {name}
-          </Link>
-        </span>
-      ))}
+            <IconCaret orientation="right" size={caretIconSize} />
+            <Link
+              className={`${applyModifiers(
+                handles.link,
+                (i + 1).toString()
+              )} ${linkBaseClasses}`}
+              to={href}
+              // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
+              waitToPrefetch={1200}
+            >
+              {decodedName}
+            </Link>
+          </span>
+        )
+      })}
 
       {term && (
         <Fragment>

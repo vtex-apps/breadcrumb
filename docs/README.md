@@ -45,7 +45,9 @@ categories = ['/Eletronics/', '/Eletronics/Computers']
 categories = ['eletronics', 'eletronics-computers']
 ```
 
-## breadcrumb.search
+## The `breadcrumb.search` block
+
+The `breadcrumb.search` block is specific for the Breadcrumb inside the search result page. You can add this block to the Product and Search template as the example below:
 
 ```
  "breadcrumb.search": {

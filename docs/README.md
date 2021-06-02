@@ -45,6 +45,25 @@ categories = ['/Eletronics/', '/Eletronics/Computers']
 categories = ['eletronics', 'eletronics-computers']
 ```
 
+## The `breadcrumb.search` block
+
+The `breadcrumb.search` block is specific for the Breadcrumb inside the search result page. You can add this block to the Product and Search template as the example below:
+
+```
+ "breadcrumb.search": {
+    "props": {
+      "showOnMobile": true
+    }
+  },
+```
+
+| Prop name    | Type            | Description    | Default value                                                                                                                               |
+| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
+| `showOnMobile`        | `Boolean`       | It determines whether Breadcrumb should also be displayed on mobile          | `false`              |
+| `homeIconSize`  | `Number`        | Controls the `size` property of [`IconHome`](https://github.com/vtex-apps/store-icons#icons)                                                                                                      | `26` |
+| `caretIconSize` | `Number`        | Controls the `size` property of [`IconCaret`](https://github.com/vtex-apps/store-icons#icons)                                                                                                     | `8` |
+
+
 ## Customization
 
 In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 

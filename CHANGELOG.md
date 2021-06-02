@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- New `breadcrumb.search` block added to README.
+
 ## [1.9.2] - 2021-02-23
 
 ### Fixed

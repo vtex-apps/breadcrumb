@@ -19,7 +19,7 @@ The VTEX BreadCrumb is a navigation scheme that shows a user's browsing history 
   }
 ```
 
-2. Add the `breadcrumb` block to the Product and Search template. For example:
+2. Add the `breadcrumb` block to the Product template. For example:
 
 ```
  "breadcrumb": {
@@ -45,9 +45,7 @@ categories = ['/Eletronics/', '/Eletronics/Computers']
 categories = ['eletronics', 'eletronics-computers']
 ```
 
-## The `breadcrumb.search` block
-
-The `breadcrumb.search` block is specific for the Breadcrumb inside the search result page. You can add this block to the Product and Search template as the example below:
+3. Add the `breadcrumb.search` block to the Search template. For example:
 
 ```
  "breadcrumb.search": {
@@ -62,7 +60,7 @@ The `breadcrumb.search` block is specific for the Breadcrumb inside the search r
 | `showOnMobile`        | `Boolean`       | It determines whether Breadcrumb should also be displayed on mobile          | `false`              |
 | `homeIconSize`  | `Number`        | Controls the `size` property of [`IconHome`](https://github.com/vtex-apps/store-icons#icons)                                                                                                      | `26` |
 | `caretIconSize` | `Number`        | Controls the `size` property of [`IconCaret`](https://github.com/vtex-apps/store-icons#icons)                                                                                                     | `8` |
-
+> ℹ️ *The `breadcrumb.search` block is specific for the Breadcrumb inside the search result page.* 
 
 ## Customization
 
@@ -77,12 +75,9 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `termArrow` |
 
 
-
-
-
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

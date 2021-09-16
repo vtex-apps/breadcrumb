@@ -124,7 +124,7 @@ const Breadcrumb: React.FC<Props> = ({
         )
       })}
 
-      {term && (
+      {term && !isMobile && (
         <Fragment>
           <span
             className={`${handles.arrow} ${handles.termArrow} ph2 c-muted-2`}

@@ -88,7 +88,7 @@ const Breadcrumb: React.FC<Props> = ({
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
       >
-       HOME
+       Home
       </Link>
       {navigationList.map(({ name, href }, i) => {
         let decodedName = ''
@@ -107,7 +107,7 @@ const Breadcrumb: React.FC<Props> = ({
               (i + 1).toString()
             )} ph2 c-muted-2`}
           >
-            <IconCaret orientation="right" size={caretIconSize} />
+            /
             <Link
               className={`${applyModifiers(
                 handles.link,
@@ -123,7 +123,7 @@ const Breadcrumb: React.FC<Props> = ({
         )
       })}
 
-      {term && !isMobile && (
+      {term && (
         <Fragment>
           <span
             className={`${handles.arrow} ${handles.termArrow} ph2 c-muted-2`}

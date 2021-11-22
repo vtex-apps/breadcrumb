@@ -2,7 +2,6 @@ import React, { Fragment, useMemo } from 'react'
 import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
-import { IconCaret } from 'vtex.store-icons'
 import { useDevice } from 'vtex.device-detector'
 
 const CSS_HANDLES = [
@@ -66,7 +65,6 @@ const Breadcrumb: React.FC<Props> = ({
   categoryTree,
   breadcrumb,
   showOnMobile = false,
-  caretIconSize = 8,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const { isMobile } = useDevice()
@@ -128,9 +126,9 @@ const Breadcrumb: React.FC<Props> = ({
           <span
             className={`${handles.arrow} ${handles.termArrow} ph2 c-muted-2`}
           >
-            <IconCaret orientation="right" size={caretIconSize} />
+            /
+            <span className={`${handles.term} ph2 c-on-base`}>{term}</span>
           </span>
-          <span className={`${handles.term} ph2 c-on-base`}>{term}</span>
         </Fragment>
       )}
     </div>

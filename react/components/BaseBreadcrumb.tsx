@@ -97,7 +97,7 @@ const Breadcrumb: React.FC<Props> = ({
             <IconCaret orientation="right" size={caretIconSize} />
             <Link
               className={`${linkBaseClasses}`}
-              to={`/`}
+              to={`/wall-murals`}
               // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
               waitToPrefetch={1200}
             >

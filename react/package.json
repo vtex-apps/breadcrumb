@@ -26,14 +26,15 @@
     "@vtex/tsconfig": "^0.4.4",
     "apollo-cache-inmemory": "^1.2.2",
     "graphql": "^14.6.0",
+    "tfgroup.breadcrumb": "https://testing--tfgroup.myvtex.com/_v/private/typings/linked/v1/tfgroup.breadcrumb@1.9.4+build1639493417/public/@types/tfgroup.breadcrumb",
     "typescript": "3.9.7",
-    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles",
-    "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector",
-    "vtex.product-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.8.1/public/@types/vtex.product-context",
-    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.111.1/public/@types/vtex.render-runtime",
-    "vtex.search-page-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-page-context@0.0.3/public/_types/react",
-    "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.17.0/public/@types/vtex.store-icons",
-    "vtex.structured-data": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.5.0/public/@types/vtex.structured-data"
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles",
+    "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.6/public/@types/vtex.device-detector",
+    "vtex.product-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.10.0/public/@types/vtex.product-context",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime",
+    "vtex.search-page-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-page-context@0.2.0/public/@types/vtex.search-page-context",
+    "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons",
+    "vtex.structured-data": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.7.1/public/@types/vtex.structured-data"
   },
   "version": "1.9.4"
 }

@@ -1,3 +1,11 @@
+# TFG Specifics
+This repo has been forked to allow TFG to customize the breadcrumbs for both search results and PDP Pages 
+
+[TFG VTEX Developer Guide](https://tfginfotec.atlassian.net/wiki/spaces/LABSPLAT/pages/1693483009/VTEX+Developer+Guide)
+
+---
+
+
 📢 Use this project, [contribute](https://github.com/vtex-apps/breadcrumb) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)

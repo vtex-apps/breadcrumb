@@ -82,12 +82,13 @@ const Breadcrumb: React.FC<Props> = ({
 
   return (
     <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
-      <Link
+     {/* The "home page" option on the breadcrumbs  */}
+      {/* <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
       >
        Home
-      </Link>
+      </Link> */}
       {navigationList.map(({ name, href }, i) => {
         let decodedName = ''
 

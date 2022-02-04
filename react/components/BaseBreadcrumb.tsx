@@ -82,6 +82,7 @@ const Breadcrumb: React.FC<Props> = ({
 
   return (
     <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
+     {/* The "home page" option on the breadcrumbs  */}
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"

@@ -5767,10 +5767,6 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-"tfgroup.breadcrumb@https://testing--tfgroup.myvtex.com/_v/private/typings/linked/v1/tfgroup.breadcrumb@1.9.4+build1639493417/public/@types/tfgroup.breadcrumb":
-  version "1.9.4"
-  resolved "https://testing--tfgroup.myvtex.com/_v/private/typings/linked/v1/tfgroup.breadcrumb@1.9.4+build1639493417/public/@types/tfgroup.breadcrumb#5b12722b30587f9ee903c9a9fb9cc7da177916bb"
-
 throat@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/throat/-/throat-5.0.0.tgz#c5199235803aad18754a667d659b5e72ce16764b"
@@ -6072,9 +6068,9 @@ verror@1.10.0:
   version "0.18.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons#0ee94d549aa283ce3a13ab987c13eac4fdfd1bba"
 
-"vtex.structured-data@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.7.1/public/@types/vtex.structured-data":
-  version "0.7.1"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.7.1/public/@types/vtex.structured-data#ef3dfc28f5e8e993dd2583ee859608794a72f947"
+"vtex.structured-data@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.8.1/public/@types/vtex.structured-data":
+  version "0.8.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.8.1/public/@types/vtex.structured-data#8ac0fb5c0185e1931d87252aae12ec1ff8484428"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

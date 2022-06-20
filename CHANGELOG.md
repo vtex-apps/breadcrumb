@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Breadcrumb with commas in the names
+
 ## [1.9.4] - 2021-07-16
 
 ### Fixed

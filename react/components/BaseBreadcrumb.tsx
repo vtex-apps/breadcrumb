@@ -75,7 +75,7 @@ const Breadcrumb: React.FC<Props> = ({
     [breadcrumb, categories, categoryTree]
   )
 
-  const linkBaseClasses = 'dib pv1 link ph2 c-muted-2 hover-c-link'
+  const linkBaseClasses = 'dib pv1 link ph2 hover-c-link'
   const shouldBeRendered = (showOnMobile && isMobile) || !isMobile
 
   if (!navigationList.length || !shouldBeRendered) {
@@ -87,6 +87,7 @@ const Breadcrumb: React.FC<Props> = ({
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
+        style={{color:"#5f697a"}}
       >
         Home
       </Link>
@@ -98,6 +99,7 @@ const Breadcrumb: React.FC<Props> = ({
             <Link
               className={`${linkBaseClasses}`}
               to={`/wall-murals`}
+              style={{color:"#5f697a"}}
               // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
               waitToPrefetch={1200}
             >
@@ -128,6 +130,7 @@ const Breadcrumb: React.FC<Props> = ({
                 (i + 1).toString()
               )} ${linkBaseClasses}`}
               to={href}
+              style={{color:"#5f697a"}}
               // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
               waitToPrefetch={1200}
             >

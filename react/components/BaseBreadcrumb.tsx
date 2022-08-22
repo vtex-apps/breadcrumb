@@ -1,5 +1,4 @@
 import React, { Fragment, useMemo } from 'react'
-// import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import { IconCaret } from 'vtex.store-icons'
@@ -50,7 +49,7 @@ const Breadcrumb: React.FC<Props> = ({
   const linkBaseClasses = 'dib pv1 link ph2 hover-c-link'
     
   return (
-    <div style={{minHeight:"22px"}} data-testid="breadcrumb" className={`${handles.container} pv3`}>
+    <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"

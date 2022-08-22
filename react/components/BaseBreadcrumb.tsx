@@ -1,9 +1,7 @@
 import React, { Fragment, useMemo } from 'react'
-import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import { IconCaret } from 'vtex.store-icons'
-import { useDevice } from 'vtex.device-detector'
 
 const CSS_HANDLES = [
   'container',
@@ -30,32 +28,6 @@ export interface Props {
   caretIconSize?: number
 }
 
-const makeLink = (str: string) =>
-  unorm
-    .nfd(str)
-    .toLowerCase()
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim()
-    .replace(/[-\s]+/g, '-')
-
-const getCategoriesList = (categories: string[]): NavigationItem[] => {
-  const categoriesSorted = categories
-    .slice()
-    .sort((a, b) => a.length - b.length)
-
-  return categoriesSorted.map((category) => {
-    const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
-    const currentCategories = categoryStripped.split('/')
-    const [categoryKey] = currentCategories.reverse()
-    const linkCompletion = currentCategories.length === 1 ? '/d' : ''
-    const href = `/${makeLink(categoryStripped)}${linkCompletion}`
-
-    return {
-      href,
-      name: categoryKey,
-    }
-  })
-}
 
 /**
  * Breadcrumb Component.
@@ -65,23 +37,17 @@ const Breadcrumb: React.FC<Props> = ({
   categories,
   categoryTree,
   breadcrumb,
-  showOnMobile = false,
   caretIconSize = 8,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const { isMobile } = useDevice()
+
   const navigationList = useMemo(
-    () => breadcrumb ?? categoryTree ?? getCategoriesList(categories),
+    () => categoryTree??[],
     [breadcrumb, categories, categoryTree]
   )
 
   const linkBaseClasses = 'dib pv1 link ph2 hover-c-link'
-  const shouldBeRendered = (showOnMobile && isMobile) || !isMobile
-
-  if (!navigationList.length || !shouldBeRendered) {
-    return null
-  }
-
+    
   return (
     <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
       <Link

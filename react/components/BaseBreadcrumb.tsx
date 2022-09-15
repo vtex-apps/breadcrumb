@@ -40,9 +40,11 @@ const Breadcrumb: React.FC<Props> = ({
   caretIconSize = 8,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
-
+  
   const navigationList = useMemo(
-    () => categoryTree??[],
+    () => categoryTree?.filter((category)=>{
+      return category.name!="Create Your Own Murals"
+    })??[],
     [breadcrumb, categories, categoryTree]
   )
 
@@ -53,7 +55,7 @@ const Breadcrumb: React.FC<Props> = ({
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
-        style={{color:"#5f697a"}}
+        style={{color:"#5f697a",display:"contents"}}
       >
         Home
       </Link>

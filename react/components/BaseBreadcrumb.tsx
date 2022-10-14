@@ -35,6 +35,7 @@ const makeLink = (str: string) =>
     .nfd(str)
     .toLowerCase()
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u0021-\u002c\u0040]/g, '')
     .trim()
     .replace(/[-\s]+/g, '-')
 

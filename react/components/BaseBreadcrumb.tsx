@@ -35,7 +35,6 @@ const makeLink = (str: string) =>
     .nfd(str)
     .toLowerCase()
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[\u0021-\u002c\u0040]/g, '')
     .trim()
     .replace(/[-\s]+/g, '-')
 
@@ -48,8 +47,7 @@ const getCategoriesList = (categories: string[]): NavigationItem[] => {
     const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
     const currentCategories = categoryStripped.split('/')
     const [categoryKey] = currentCategories.reverse()
-    const linkCompletion = currentCategories.length === 1 ? '/d' : ''
-    const href = `/${makeLink(categoryStripped)}${linkCompletion}`
+    const href = `/${makeLink(categoryStripped)}`
 
     return {
       href,
@@ -73,7 +71,7 @@ const Breadcrumb: React.FC<Props> = ({
   const handles = useCssHandles(CSS_HANDLES)
   const { isMobile } = useDevice()
   const navigationList = useMemo(
-    () => breadcrumb ?? categoryTree ?? getCategoriesList(categories),
+    () => breadcrumb ?? getCategoriesList(categories) ?? categoryTree,
     [breadcrumb, categories, categoryTree]
   )
 

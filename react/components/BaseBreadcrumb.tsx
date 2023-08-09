@@ -1,9 +1,7 @@
 import React, { Fragment, useMemo } from 'react'
-import unorm from 'unorm'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
-import { IconCaret, IconHome } from 'vtex.store-icons'
-import { useDevice } from 'vtex.device-detector'
+import { IconCaret } from 'vtex.store-icons'
 
 const CSS_HANDLES = [
   'container',
@@ -30,32 +28,6 @@ export interface Props {
   caretIconSize?: number
 }
 
-const makeLink = (str: string) =>
-  unorm
-    .nfd(str)
-    .toLowerCase()
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim()
-    .replace(/[-\s]+/g, '-')
-
-const getCategoriesList = (categories: string[]): NavigationItem[] => {
-  const categoriesSorted = categories
-    .slice()
-    .sort((a, b) => a.length - b.length)
-
-  return categoriesSorted.map((category) => {
-    const categoryStripped = category.replace(/^\//, '').replace(/\/$/, '')
-    const currentCategories = categoryStripped.split('/')
-    const [categoryKey] = currentCategories.reverse()
-    const linkCompletion = currentCategories.length === 1 ? '/d' : ''
-    const href = `/${makeLink(categoryStripped)}${linkCompletion}`
-
-    return {
-      href,
-      name: categoryKey,
-    }
-  })
-}
 
 /**
  * Breadcrumb Component.
@@ -65,32 +37,43 @@ const Breadcrumb: React.FC<Props> = ({
   categories,
   categoryTree,
   breadcrumb,
-  showOnMobile = false,
-  homeIconSize = 26,
   caretIconSize = 8,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const { isMobile } = useDevice()
+  
   const navigationList = useMemo(
-    () => breadcrumb ?? categoryTree ?? getCategoriesList(categories),
+    () => categoryTree?.filter((category)=>{
+      return category.name!="Create Your Own Murals"
+    })??[],
     [breadcrumb, categories, categoryTree]
   )
 
-  const linkBaseClasses = 'dib pv1 link ph2 c-muted-2 hover-c-link'
-  const shouldBeRendered = (showOnMobile && isMobile) || !isMobile
-
-  if (!navigationList.length || !shouldBeRendered) {
-    return null
-  }
-
+  const linkBaseClasses = 'dib pv1 link ph2 hover-c-link'
+    
   return (
     <div data-testid="breadcrumb" className={`${handles.container} pv3`}>
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
+        style={{color:"#5f697a",display:"contents"}}
       >
-        <IconHome size={homeIconSize} />
+        Home
       </Link>
+      <span
+            
+            className={`ph2 c-muted-2`}
+          >
+            <IconCaret orientation="right" size={caretIconSize} />
+            <Link
+              className={`${linkBaseClasses}`}
+              to={`/wall-murals`}
+              style={{color:"#444041"}}
+              // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
+              waitToPrefetch={1200}
+            >
+              Shop Murals
+            </Link>
+          </span>
       {navigationList.map(({ name, href }, i) => {
         let decodedName = ''
 
@@ -115,6 +98,7 @@ const Breadcrumb: React.FC<Props> = ({
                 (i + 1).toString()
               )} ${linkBaseClasses}`}
               to={href}
+              style={{color:"#5f697a"}}
               // See https://github.com/vtex-apps/breadcrumb/pull/66 for the reasoning behind this
               waitToPrefetch={1200}
             >

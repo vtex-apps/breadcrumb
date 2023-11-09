@@ -1,5 +1,6 @@
 import React, { Fragment, useMemo } from 'react'
 import unorm from 'unorm'
+import { useIntl } from 'react-intl'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import { IconCaret, IconHome } from 'vtex.store-icons'
@@ -69,6 +70,7 @@ const Breadcrumb: React.FC<Props> = ({
   homeIconSize = 26,
   caretIconSize = 8,
 }) => {
+  const intl = useIntl()
   const handles = useCssHandles(CSS_HANDLES)
   const { isMobile } = useDevice()
   const navigationList = useMemo(
@@ -88,6 +90,9 @@ const Breadcrumb: React.FC<Props> = ({
       <Link
         className={`${handles.link} ${handles.homeLink} ${linkBaseClasses} v-mid`}
         page="store.home"
+        aria-label={intl.formatMessage({
+          id: 'store/breadcrumb.homeLink',
+        })}
       >
         <IconHome size={homeIconSize} />
       </Link>

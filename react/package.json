@@ -35,5 +35,5 @@
     "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.17.0/public/@types/vtex.store-icons",
     "vtex.structured-data": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.structured-data@0.5.0/public/@types/vtex.structured-data"
   },
-  "version": "1.9.4"
+  "version": "1.9.5"
 }

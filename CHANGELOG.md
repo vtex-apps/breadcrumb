@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.6] - 2026-03-02
+
 ### Added
 - `aria-label` translation for home icon for DE and FR
 ### Fixed

@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - `aria-label` translation for home icon for DE and FR
-
+### Fixed
+- `aria-label` home icon translation to English, Portuguese and Spanish
 ### Changed
 
 - Update GitHub actions/cache to v4
